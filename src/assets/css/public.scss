@@ -1,0 +1,95 @@
+.public-location-box {
+  padding-left: 4rem;
+  margin-top: 0.9rem;
+  .top {
+    margin-bottom: 0.5rem;
+    .one-line {
+      font-size: 0.14rem;
+      color: rgba(126, 128, 133, 1);
+      line-height: 0.2rem;
+    }
+    .two-line {
+      font-size: 0.34rem;
+      color: rgba(44, 46, 48, 1);
+      line-height: 0.46rem;
+    }
+  }
+  .bottom {
+    width: 9.51rem;
+    height: 5.1rem;
+    padding: 0.84rem;
+    background: rgba(246, 248, 249, 1);
+    border-radius: 8px;
+    border: 1px solid rgba(227, 232, 234, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .bottom-item{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .list-number{
+        width:0.73rem;
+        height:0.73rem;
+        font-size:0.34rem;
+        color:rgba(32,96,159,1);
+        line-height:0.73rem;
+        text-align: center;
+        border:1px solid rgba(32,96,159,1);
+        border-radius: 50%;
+        margin-right: 0.68rem;
+      }
+      .top-text{
+        font-size:0.22rem;
+        color:rgba(44,46,48,1);
+        line-height:0.46rem;
+      }
+      .bottom-text{
+        font-size:0.16rem;
+        color:rgba(126,128,133,1);
+        line-height:0.28rem;
+      }
+    }
+  }
+  .bottom-map {
+    width: 11.2rem;
+    height: 4.73rem;
+  }
+}
+
+.public-join__box--item {
+  width: 4.11rem;
+  height: 5.04rem;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.14);
+  border-radius: 5px;
+  margin-top: -0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .icon {
+    width: 1.08rem;
+    height: 1.08rem;
+    margin: 0.56rem 0 0.37rem;
+  }
+  .title {
+    font-size: 0.24rem;
+    font-weight: 400;
+    color: rgba(44, 46, 48, 1);
+    line-height: 0.34rem;
+  }
+  .discription {
+    width: 3.16rem;
+    height: 1.16rem;
+    font-size: 0.16rem;
+    color: rgba(84, 86, 90, 1);
+    line-height: 0.28rem;
+    text-align: center;
+    margin: 0.26rem 0 0.43rem;
+  }
+  .call-me {
+    font-size: 0.18rem;
+    color: rgba(44, 46, 48, 1);
+    line-height: 0.25rem;
+  }
+}
