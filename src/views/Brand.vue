@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <div class="top-discription">
+    <!--div class="top-discription">
       <p class="frend">合作伙伴</p>
       <p class="xiaomi-youpin">小米有品海外授权</p>
       <div class="xiao-mi__discription">
@@ -46,7 +46,7 @@
           class="discription-box"
         >小米有品是小米旗下精品生活电商平台，也是小米“新零售”战略的重要一环。依托小米生态链体系，延续小米的“爆品”模式，致力于将“小米式的性价比”延伸到更广泛的家居生活领域。</div>
       </div>
-    </div>
+    </div-->
 
     <div class="brand-icon__list">
       <img :src="'/static/img/'+item" alt v-for="(item, index) in brandList" :key="index">

@@ -11,7 +11,7 @@
           <span>|</span> 品牌合作
           <span>|</span> 联系
         </div>
-        <div class="bottom">COPYRIGHT 2019 SOLOPICK 广州米选科技所有 粤ICP备########号</div>
+        <div class="bottom">COPYRIGHT 2019 SOLOPICK 广州米选科技所有 粤ICP备18068342号-1</div>
       </div>
 
       <!-- 右面 -->

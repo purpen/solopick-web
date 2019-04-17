@@ -73,7 +73,7 @@
 
       <!--  小米有品海外授权 合作品牌-->
       <div class="brand-join">
-        <div class="item">
+        <!--div class="item">
           <div class="hand-text">合作伙伴</div>
           <div class="middle-text">小米有品海外授权</div>
           <div class="bottom-box">
@@ -81,7 +81,7 @@
             <p>小米有品是小米旗下精品生活电商平台，也是小米“新零售”战略的重要一环。依托小米生态链体系，延续小米的“爆品”模式，致力于将“小米式的性价比”延伸到更广泛的家居生活领域。</p>
           </div>
           <img class="xia-jian__tou" src="/static/img/arrow-down-break.png" alt>
-        </div>
+        </div-->
 
         <div class="item">
           <div class="hand-text">品质 x 科技 x 美学</div>
