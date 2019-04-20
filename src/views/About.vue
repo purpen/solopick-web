@@ -1,98 +1,191 @@
 <template>
-  <div
-    :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
-  >
-    <!-- <pc-hand></pc-hand> -->
-    <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
+  <div>
+    <div v-if="languageType=='c'">
+      <div
+        :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
+      >
+        <!-- H5的选择项目 -->
+        <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
 
-    <div class="pc-hand__container">
-      <!-- 头部导航 -->
-      <div class="navbar">
-        <img class="logo" src="/static/img/solopick-logo-l.png" alt>
-        <div class="handle-pick">
-          <div class="top">
-            <span>简体中文</span>
-            <img class="jian-tou" src="/static/img/arrow-down-break.png" alt>
+        <div class="pc-hand__container">
+          <!-- 头部导航 -->
+          <div class="navbar">
+            <img class="logo" src="/static/img/solopick-logo-l.png" @click="handleGoIndex()">
+            <div class="handle-pick">
+              <div class="top" @click="isShowLanguagePick=!isShowLanguagePick">
+                <span>{{languageType=='c'?'简体中文':'English'}}</span>
+                <img class="jian-tou" src="/static/img/arrow-down-break.png" alt>
+                <language
+                  :isShowLanguagePick="isShowLanguagePick"
+                  v-on:handleSwichLanguage="handleSwichLanguage"
+                ></language>
+              </div>
+              <div class="bottom">
+                <div
+                  class="span"
+                  v-for="(item,index) in categoryHand"
+                  :key="index"
+                  @click="handleGoOtherPage(item.id)"
+                >
+                  <span>{{languageType=='c'?item.name:item.eName}}</span>
+                  <p v-show="item.id == categoryActive" class="ren-line"></p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="bottom">
-            <div
-              class="span"
-              v-for="(item,index) in categoryHand"
-              :key="index"
-              @click="handleGoOtherPage(item.id)"
-            >
-              <span>{{item.name}}</span>
-              <p v-show="item.id == categoryActive" class="ren-line"></p>
+
+          <!-- 左边的文字 关于我们-->
+          <div class="left-text">
+            <div class="title-text">
+              <span>简</span>介
+            </div>
+            <div class="discription-text">SOLOPICK 创立的初衷是连接好产品于全球消费者，为中国创新品牌开拓更广阔的市场空间。</div>
+          </div>
+        </div>
+
+        <!-- 名称的由来 -->
+        <div class="name-from">
+          <div class="let">
+            <p class="one-line">什么是SOLOPICK</p>
+            <p class="two-line">名称的由来</p>
+            <p
+              class="three-line"
+            >SOLOPICK具有「搜罗精选」和「个人品味」的双重含义。不绝对追求性价比和标签化，回归本真的选品态度是品牌倡导的深层含义。对每一件选品选物认真审视，追求舒适便利与有温度、有情感的生活态度。</p>
+          </div>
+          <img class="right-photo" src="static/img/what-means.jpg" alt>
+        </div>
+
+        <!-- 选聘理念 -->
+        <div class="product-category__box">
+          <p class="one-line">关于智美生活</p>
+          <p class="two-line">选品理念</p>
+          <p class="three-line">SOLOPICK倡导追求品质，同样回归生活，重视科技，更重视人与人之间的连接。</p>
+          <div class="product-box">
+            <div class="product-box--big" v-for="(item, index) in category" :key="index">
+              <div class="product-box__item">
+                <img :src="'static/img/' + item.image">
+                <p class="one-line__text">{{item.one}}</p>
+                <p class="two-line__text">{{item.two}}</p>
+              </div>
+              <span class="x-mark" v-if="index != 2">x</span>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- 左边的文字 关于我们-->
-      <div class="left-text">
-        <div class="title-text">
-          <span>简</span>介
-        </div>
-        <div class="discription-text">SOLOPICK 创立的初衷是连接好产品于全球消费者，为中国创新品牌开拓更广阔的市场空间。</div>
+        <pc-foot-join :languageType="languageType"></pc-foot-join>
       </div>
     </div>
 
-    <!-- 名称的由来 -->
-    <div class="name-from">
-      <div class="let">
-        <p class="one-line">什么是SOLOPICK</p>
-        <p class="two-line">名称的由来</p>
-        <p
-          class="three-line"
-        >SOLOPICK具有「搜罗精选」和「个人品味」的双重含义。不绝对追求性价比和标签化，回归本真的选品态度是品牌倡导的深层含义。对每一件选品选物认真审视，追求舒适便利与有温度、有情感的生活态度。</p>
-      </div>
-      <img class="right-photo" src="static/img/what-means.jpg" alt>
-    </div>
+    <!-- 英文 -->
+    <div v-else>
+      <div
+        :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
+      >
+        <!-- H5的选择项目 -->
+        <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
 
-    <!-- 选聘理念 -->
-    <div class="product-category__box">
-      <p class="one-line">关于智美生活</p>
-      <p class="two-line">选品理念</p>
-      <p class="three-line">SOLOPICK倡导追求品质，同样回归生活，重视科技，更重视人与人之间的连接。</p>
-      <div class="product-box">
-        <div class="product-box--big" v-for="(item, index) in category" :key="index">
-          <div class="product-box__item">
-            <img :src="'static/img/' + item.image">
-            <p class="one-line__text">{{item.one}}</p>
-            <p class="two-line__text">{{item.two}}</p>
+        <div class="pc-hand__container">
+          <!-- 头部导航 -->
+          <div class="navbar">
+            <img class="logo" src="/static/img/solopick-logo-l.png" @click="handleGoIndex()">
+            <div class="handle-pick">
+              <div class="top" @click="isShowLanguagePick=!isShowLanguagePick">
+                <span>{{languageType=='c'?'简体中文':'English'}}</span>
+                <img class="jian-tou" src="/static/img/arrow-down-break.png" alt>
+                <language
+                  :isShowLanguagePick="isShowLanguagePick"
+                  v-on:handleSwichLanguage="handleSwichLanguage"
+                ></language>
+              </div>
+              <div class="bottom">
+                <div
+                  class="span"
+                  v-for="(item,index) in categoryHand"
+                  :key="index"
+                  @click="handleGoOtherPage(item.id)"
+                >
+                  <span>{{languageType=='c'?item.name:item.eName}}</span>
+                  <p v-show="item.id == categoryActive" class="ren-line"></p>
+                </div>
+              </div>
+            </div>
           </div>
-          <span class="x-mark" v-if="index != 2">x</span>
+
+          <!-- 左边的文字 关于我们-->
+          <div class="left-text">
+            <div class="title-text">
+              Introduction
+            </div>
+            <div class="discription-text">SOLOPICK's original intention is to connect good products with global consumers, and open up wider market space for Chinese innovative brands.</div>
+          </div>
         </div>
+
+        <!-- 名称的由来 -->
+        <div class="name-from">
+          <div class="let">
+            <p class="one-line">What is SOLOPICK</p>
+            <p class="two-line middle-text">The Origin of SOLOPICK</p>
+            <p
+              class="three-line middle-text"
+            >SOLOPICK has the double meanings of "selecting" and "personal taste". The deep meaning advocated by the brand is not blindly pursuing cost performance and labeling, but returning to the true attitude of choosing good products. SOLOPICK will carefully examine every product and pursue a comfortable and convenient life attitude with warmth and emotion.</p>
+          </div>
+          <img class="right-photo" src="static/img/what-means.jpg" alt>
+        </div>
+
+        <!-- 选聘理念 -->
+        <div class="product-category__box">
+          <p class="one-line">About the Intelligence and Aesthetic Life</p>
+          <p class="two-line">The Concept of Selecting Products</p>
+          <p class="three-line">SOLOPICK advocates pursuing high-quality, returning to life, attaching importance to science and technology, and attaching more importance to the connection between people.</p>
+          <div class="product-box">
+            <div class="product-box--big" v-for="(item, index) in category" :key="index">
+              <div class="product-box__item">
+                <img :src="'static/img/' + item.image">
+                <p class="one-line__text">{{item.eone}}</p>
+                <p class="two-line__text">{{item.etwo}}</p>
+              </div>
+              <span class="x-mark" v-if="index != 2">x</span>
+            </div>
+          </div>
+        </div>
+
+        <pc-foot-join :languageType="languageType"></pc-foot-join>
       </div>
     </div>
-
-    <pc-foot-join></pc-foot-join>
   </div>
 </template>
 
 <script>
 import * as global from '@/global/index'
+import * as types from '../vuex/type.js'
 export default {
   name: 'About',
   data () {
     return {
+      languageType: 'c', // 语言类型
+      isShowLanguagePick: false, // 是否显示语言选择框
+
       categoryActive: 'index',
       categoryHand: [
         {
           id: 'about',
-          name: '关于我们'
+          name: '关于我们',
+          eName: 'ABOUT US'
         },
         {
           id: 'store',
-          name: '店铺'
+          name: '店铺',
+          eName: 'STORE'
         },
         {
           id: 'brand',
-          name: '品牌合作'
+          name: '品牌合作',
+          eName: 'BRAND'
         },
         {
           id: 'call_me',
-          name: '联系'
+          name: '联系',
+          eName: 'CONTACT'
         }
       ],
 
@@ -101,20 +194,29 @@ export default {
         {
           image: 'product-selection-1.png',
           one: '品质',
-          two: '精良 · 独特 · 平价'
+          eone: 'QUALITY',
+          two: '精良 · 独特 · 平价',
+          etwo: 'Excellent · Unique · Affordable'
         },
         {
           image: 'product-selection-2.png',
-          one: '品质',
-          two: '精良 · 独特 · 平价'
+          one: '科技',
+          eone: 'TECHNOLOGY',
+          two: '便捷 · 连接 · 智造',
+          etwo: 'Convenient · Connected · Smart'
         },
         {
           image: 'product-selection-3.png',
-          one: '品质',
-          two: '精良 · 独特 · 平价'
+          one: '美学',
+          eone: 'AESTHETICS',
+          two: '简约 · 温度 · 情感',
+          etwo: 'Simplicity · Design · Warmth'
         }
       ]
     }
+  },
+  created () {
+      // console.log(this.)
   },
   mounted () {
     // 计算样式
@@ -126,11 +228,24 @@ export default {
     }
   },
   methods: {
+    // 跳转首页
+    handleGoIndex () {
+      this.$router.push({path:'Index'})
+    },
     // 跳转网页
     handleGoOtherPage (e) {
       this.categoryActive = e
       this.$router.push({path: e})
+    },
+    // 语言切换
+    handleSwichLanguage (e) {
+      this.languageType = e
     }
+  },
+  activated () {
+    console.log(this.$store.state.languageType)
+    this.languageType = this.$store.state.languageType
+    this.categoryActive = window.location.hash.split('/')[1]
   }
 }
 </script>
@@ -153,8 +268,10 @@ export default {
         height: 0.62rem;
         width: 1.2rem;
         margin-left: 4rem;
+        cursor: pointer;
       }
       .handle-pick {
+        position: relative;
         flex: 1;
         padding-right: 4rem;
         display: flex;
@@ -170,8 +287,13 @@ export default {
           margin-left: 0.01rem;
         }
         .top {
+          position: relative;
           height: 0.2rem;
           border-bottom: 0.01rem solid white;
+          cursor: pointer;
+          span {
+            position: relative;
+          }
         }
         .bottom {
           padding-top: 0.2rem;
@@ -345,6 +467,7 @@ export default {
         height: 0.3rem;
         width: 0.6rem;
         margin-left: 0.5rem;
+        cursor: pointer;
       }
       .handle-pick {
         flex: 1;
@@ -362,8 +485,13 @@ export default {
           margin-left: 0.01rem;
         }
         .top {
+          position: relative;
           height: 0.2rem;
           border-bottom: 0.01rem solid white;
+          cursor: pointer;
+          span {
+            position: relative;
+          }
         }
         .bottom {
           padding-top: 0.2rem;
@@ -461,6 +589,9 @@ export default {
         color: rgba(126, 128, 133, 1);
         line-height: 0.28rem;
       }
+      .middle-text.two-line,.three-line.middle-text{
+        height: auto;
+      }
     }
     .right-photo {
       width: 3.36rem;
@@ -541,11 +672,11 @@ export default {
 }
 
 .small--window {
-    .pc-hand__container {
+  .pc-hand__container {
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 3.20rem;
+    width: 3.2rem;
     height: 2.76rem;
     padding-top: 0.16rem;
     background: url("/static/img/4-header-bg-imgs.jpg") no-repeat;
@@ -559,6 +690,7 @@ export default {
         margin-left: 0.24rem;
       }
       .handle-pick {
+        position: relative;
         flex: 1;
         padding-right: 0.5rem;
         display: none;
@@ -574,8 +706,13 @@ export default {
           margin-left: 0.01rem;
         }
         .top {
+          position: relative;
           height: 0.2rem;
           border-bottom: 0.01rem solid white;
+          cursor: pointer;
+          span {
+            position: relative;
+          }
         }
         .bottom {
           padding-top: 0.2rem;
@@ -602,11 +739,11 @@ export default {
       top: 0.97rem;
       .title-text {
         // height:0.89rem;
-        font-size:0.26rem;
-        font-family:PingFangSC-Regular;
-        font-weight:400;
-        color:rgba(255,255,255,1);
-        line-height:0.37rem;
+        font-size: 0.26rem;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+        line-height: 0.37rem;
         display: flex;
         flex-direction: row;
         margin-bottom: 0.5rem;
@@ -620,7 +757,7 @@ export default {
         font-size: 0.14rem;
         font-weight: 400;
         color: rgba(255, 255, 255, 1);
-        font-family:PingFangSC-Regular;
+        font-family: PingFangSC-Regular;
         line-height: 0.28rem;
       }
       .call-me__button {

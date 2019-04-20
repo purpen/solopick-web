@@ -1,72 +1,159 @@
 <template>
-  <div
-    :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
-  >
-  <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
-    <div class="pc-hand__container">
-      <!-- 头部导航 -->
-      <div class="navbar">
-        <img class="logo" src="/static/img/solopick-logo-l.png" alt>
-        <div class="handle-pick">
-          <div class="top">
-            <span>简体中文</span>
-            <img class="jian-tou" src="/static/img/arrow-down-break.png" alt>
+  <div>
+    <div v-if="languageType=='c'">
+      <div
+        :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
+      >
+        <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
+        <div class="pc-hand__container">
+          <!-- 头部导航 -->
+          <div class="navbar">
+            <img class="logo" src="/static/img/solopick-logo-l.png" @click="handleGoIndex()">
+            <div class="handle-pick">
+              <div class="top" @click="isShowLanguagePick=!isShowLanguagePick">
+                <span>{{languageType=='c'?'简体中文':'English'}}</span>
+                <img class="jian-tou" src="/static/img/arrow-down-break.png" alt>
+                <language
+                  :isShowLanguagePick="isShowLanguagePick"
+                  v-on:handleSwichLanguage="handleSwichLanguage"
+                ></language>
+              </div>
+              <div class="bottom">
+                <div
+                  class="span"
+                  v-for="(item,index) in category"
+                  :key="index"
+                  @click="handleGoOtherPage(item.id)"
+                >
+                  <span>{{languageType=='c'?item.name:item.eName}}</span>
+                  <p v-show="item.id == categoryActive" class="ren-line"></p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="bottom">
+
+          <!-- 左边的文字 店铺-->
+          <div class="left-text">
+            <div class="title-text">
+              <span>S</span>OLOPICK生活馆
+            </div>
             <div
-              class="span"
-              v-for="(item,index) in category"
-              :key="index"
-              @click="handleGoOtherPage(item.id)"
-            >
-              <span>{{item.name}}</span>
-              <p v-show="item.id == categoryActive" class="ren-line"></p>
+              class="discription-text"
+            >SOLOPICK生活馆是一个以“优质国货”为原则的生活美学专门店，专注精选生活家居和创新生活家电，涵盖智能家居、家用生活、数码配件等，SKU多达7000余种。</div>
+            <div class="call-me__button">
+              <span>关于我们</span>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- 左边的文字 店铺-->
-      <div class="left-text">
-        <div class="title-text">
-          <span>S</span>OLOPICK生活馆
-        </div>
-        <div
-          class="discription-text"
-        >SOLOPICK生活馆是一个以“优质国货”为原则的生活美学专门店，专注精选生活家居和创新生活家电，涵盖智能家居、家用生活、数码配件等，SKU多达7000余种。</div>
-        <div class="call-me__button">
-          <span>关于我们</span>
-        </div>
-      </div>
-    </div>
+        <img class="top-right__photo" src="/static/img/store-glance.jpg" alt>
 
-    <img class="top-right__photo" src="/static/img/store-glance.jpg" alt>
-
-    <div class="public-location-box store-join__box">
-      <div class="top">
-        <p class="one-line">诚邀合作</p>
-        <p class="two-line">店铺加盟流程</p>
-      </div>
-      <div class="bottom">
-        <div class="bottom-item" v-for="(item,index) in joinStoreList" :key="index">
-          <div class="list-number">{{index+1}}</div>
-          <div class="right-box">
-            <p class="top-text">{{item.top}}</p>
-            <p class="bottom-text">{{item.bottom}}</p>
+        <div class="public-location-box store-join__box">
+          <div class="top">
+            <p class="one-line">诚邀合作</p>
+            <p class="two-line">店铺加盟流程</p>
+          </div>
+          <div class="bottom">
+            <div class="bottom-item" v-for="(item,index) in joinStoreList" :key="index">
+              <div class="list-number">{{index+1}}</div>
+              <div class="right-box">
+                <p class="top-text">{{item.top}}</p>
+                <p class="bottom-text">{{item.bottom}}</p>
+              </div>
+            </div>
           </div>
         </div>
+
+        <div class="public-location-box map-box">
+          <div class="top">
+            <p class="one-line">体验SOLOPICK</p>
+            <p class="two-line">品牌体验店地址</p>
+            <!-- <p class="one-line">体验SOLOPICK</p> -->
+          </div>
+          <img class="bottom-map" src="static/img/store-location.jpg" alt>
+        </div>
+
+        <pc-foot-join :languageType="languageType"></pc-foot-join>
       </div>
     </div>
 
-    <div class="public-location-box map-box">
-      <div class="top">
-        <p class="one-line">体验SOLOPICK</p>
-        <p class="two-line">品牌体验店地址</p>
-      </div>
-      <img class="bottom-map" src="static/img/store-location.jpg" alt>
-    </div>
+    <!-- 英文 -->
+    <div v-else>
+      <div
+        :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
+      >
+        <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
+        <div class="pc-hand__container">
+          <!-- 头部导航 -->
+          <div class="navbar">
+            <img class="logo" src="/static/img/solopick-logo-l.png" @click="handleGoIndex()">
+            <div class="handle-pick">
+              <div class="top" @click="isShowLanguagePick=!isShowLanguagePick">
+                <span>English</span>
+                <img class="jian-tou" src="/static/img/arrow-down-break.png" alt>
+                <language
+                  :isShowLanguagePick="isShowLanguagePick"
+                  v-on:handleSwichLanguage="handleSwichLanguage"
+                ></language>
+              </div>
+              <div class="bottom">
+                <div
+                  class="span"
+                  v-for="(item,index) in category"
+                  :key="index"
+                  @click="handleGoOtherPage(item.id)"
+                >
+                  <span>{{languageType=='c'?item.name:item.eName}}</span>
+                  <p v-show="item.id == categoryActive" class="ren-line"></p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-    <pc-foot-join></pc-foot-join>
+          <!-- 左边的文字 店铺-->
+          <div class="left-text">
+            <div class="title-text">
+              SOLOPICK Life House
+            </div>
+            <div
+              class="discription-text"
+            >SOLOPICK Life House is a speciality store of life aesthetics based on the principle of quality made-in-China products. It focuses on the selection of household products and innovative home appliances, covering smart home, household life, digital accessories, etc., with more than 7,000 SKUs.</div>
+            <div class="call-me__button">
+              <span>about us</span>
+            </div>
+          </div>
+        </div>
+
+        <img class="top-right__photo" src="/static/img/store-glance.jpg" alt>
+
+        <div class="public-location-box store-join__box">
+          <div class="top">
+            <p class="one-line">SINCERELY INVITE THE COOPERATION</p>
+            <p class="two-line">The process of joining store</p>
+          </div>
+          <div class="bottom">
+            <div class="bottom-item" v-for="(item,index) in joinStoreList" :key="index">
+              <div class="list-number">{{index+1}}</div>
+              <div class="right-box">
+                <p class="top-text">{{item.etop}}</p>
+                <p class="bottom-text">{{item.ebottom}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="public-location-box map-box">
+          <div class="top">
+            <p class="one-line">EXPERIENCE SOLOPICK LIFE HOUSE</p>
+            <p class="two-line">Address</p>
+            <p class="one-line">113 Heping East Road, Changdi Road Shopping and Leisure Street, Liwan District, Guangzhou City, Guangdong Province. Postal code: 510000</p>
+          </div>
+          <img class="bottom-map" src="static/img/store-location.jpg" alt>
+        </div>
+
+        <pc-foot-join :languageType="languageType"></pc-foot-join>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -78,46 +165,63 @@ export default {
     return {
       windowWidth: '', // 屏幕尺寸
 
+      languageType: 'c', // 语言类型
+      isShowLanguagePick: false, // 是否显示语言选择框
+
       categoryActive: 'index',
       category: [
         {
           id: 'about',
-          name: '关于我们'
+          name: '关于我们',
+          eName: 'ABOUT US'
         },
         {
           id: 'store',
-          name: '店铺'
+          name: '店铺',
+          eName: 'STORE'
         },
         {
           id: 'brand',
-          name: '品牌合作'
+          name: '品牌合作',
+          eName: 'BRAND'
         },
         {
           id: 'call_me',
-          name: '联系'
+          name: '联系',
+          eName: 'CONTACT'
         }
       ],
 
       joinStoreList: [
         {
           top: '确认合作意向',
-          bottom: '加盟商请通过020-xxxx 或 邮箱xxxxxxx@solopick.com，与我们取得联系'
+          bottom: '加盟商请通过020-xxxx 或 邮箱xxxxxxx@solopick.com，与我们取得联系',
+          etop: 'Confirm the cooperation intention',
+          ebottom: 'Franchisees please contact us through 020-xxxx or email xxxxxxx@solopick.com.'
         },
         {
           top: '评估审核',
-          bottom: '合作负责人将对加盟商的铺位与经营方案进行审核评估，通过考核后双方签订合作协议'
+          bottom: '合作负责人将对加盟商的铺位与经营方案进行审核评估，通过考核后双方签订合作协议',
+          etop: 'Assessment and review',
+          ebottom: "The cooperation director will review and evaluate the franchisees' store and business plan, and sign the cooperation agreement after passing the evaluation."
         },
         {
           top: '店面装修',
-          bottom: 'SOLOPICK 将为加盟商提供统一的设计店面装修方案'
+          bottom: 'SOLOPICK 将为加盟商提供统一的设计店面装修方案',
+          etop: 'Shop decoration',
+          ebottom: 'SOLOPICK will provide a unified design and decoration scheme for franchisees.'
         },
         {
           top: '货品采购',
-          bottom: '加盟商根据经销货品进行配货采购'
+          bottom: '加盟商根据经销货品进行配货采购',
+          etop: 'Goods procurement',
+          ebottom: 'Franchisees purchases goods as distribution needed.'
         },
         {
           top: '管理培训服务',
-          bottom: 'SOLOPICK 选品团队根据市场提供配货建议，加盟商确认后进行采购运送'
+          bottom: 'SOLOPICK 选品团队根据市场提供配货建议，加盟商确认后进行采购运送',
+          etop: 'Management services',
+          ebottom: 'The SOLOPICK product selection team will provide distribution suggestions according to the market. After confirmation, franchisees will purchase and deliver.'
         }
       ]
     }
@@ -132,11 +236,23 @@ export default {
     }
   },
   methods: {
+    // 跳转首页
+    handleGoIndex () {
+      this.$router.push({path:'Index'})
+    },
     // 跳转网页
     handleGoOtherPage (e) {
       this.categoryActive = e
       this.$router.push({path: e})
+    },
+    // 语言切换
+    handleSwichLanguage (e) {
+      this.languageType = e
     }
+  },
+  activated () {
+    this.categoryActive = window.location.hash.split('/')[1]
+    this.languageType = this.$store.state.languageType
   }
 }
 </script>
@@ -160,6 +276,7 @@ export default {
         height: 0.62rem;
         width: 1.2rem;
         margin-left: 4rem;
+        cursor: pointer;
       }
       .handle-pick {
         flex: 1;
@@ -177,8 +294,10 @@ export default {
           margin-left: 0.01rem;
         }
         .top {
+          position: relative;
           height: 0.2rem;
           border-bottom: 0.01rem solid white;
+          cursor: pointer;
         }
         .bottom {
           padding-top: 0.2rem;
@@ -266,7 +385,8 @@ export default {
       .logo {
         height: 0.3rem;
         width: 0.6rem;
-        margin-left: 0.5rem;
+        margin-left: 0.2rem;
+        cursor: pointer;
       }
       .handle-pick {
         flex: 1;
@@ -284,8 +404,10 @@ export default {
           margin-left: 0.01rem;
         }
         .top {
+          position: relative;
           height: 0.2rem;
           border-bottom: 0.01rem solid white;
+          cursor: pointer;
         }
         .bottom {
           padding-top: 0.2rem;
@@ -419,7 +541,7 @@ export default {
 }
 
 .small--window {
-    .pc-hand__container {
+  .pc-hand__container {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -452,8 +574,10 @@ export default {
           margin-left: 0.01rem;
         }
         .top {
+          position: relative;
           height: 0.2rem;
           border-bottom: 0.01rem solid white;
+          cursor: pointer;
         }
         .bottom {
           padding-top: 0.2rem;
@@ -497,7 +621,7 @@ export default {
         font-weight: 400;
         color: rgba(255, 255, 255, 1);
         line-height: 0.28rem;
-        font-family:PingFangSC-Regular;
+        font-family: PingFangSC-Regular;
       }
       .call-me__button {
         display: none;
@@ -521,8 +645,8 @@ export default {
     top: 3.43rem;
     left: 50%;
     transform: translateX(-50%);
-    width:2.71rem;
-    height:1.91rem;
+    width: 2.71rem;
+    height: 1.91rem;
     border-radius: 5px;
   }
   .store-join__box {

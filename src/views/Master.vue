@@ -2,7 +2,9 @@
   <div class="container" :class="windowWidth">
     <!-- 中间 -->
     <div class="page-middle">
-      <router-view :windowWidth="windowWidth"/>
+      <keep-alive>
+        <router-view :windowWidth="windowWidth"/>
+      </keep-alive>
     </div>
 
     <!-- 底部 -->
@@ -30,6 +32,12 @@ export default {
     window.onresize = e => {
       this.windowWidth = global.windowWidth()
       console.log(this.windowWidth)
+    }
+  },
+  methods:{
+    // 跳转首页
+    handleGoIndex () {
+      this.$router.push({path:'Index'})
     }
   }
 }

@@ -1,79 +1,84 @@
 <template>
   <div>
-    <!-- <pc-hand></pc-hand> -->
-    <div
-      :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
-    >
-    <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
-      <div class="pc-hand__container">
-        <!-- 头部导航 -->
-        <div class="navbar">
-          <img class="logo" src="/static/img/solopick-logo-l.png" alt>
-          <div class="handle-pick">
-            <div class="top">
-              <span>简体中文</span>
-              <img class="jian-tou" src="/static/img/arrow-down-break.png" alt>
-            </div>
-            <div class="bottom">
-              <div
-                class="span"
-                v-for="(item,index) in category"
-                :key="index"
-                @click="handleGoOtherPage(item.id)"
-              >
-                <span>{{item.name}}</span>
-                <p v-show="item.id == categoryActive" class="ren-line"></p>
+    <div v-if="languageType=='c'">
+      <!-- <pc-hand></pc-hand> -->
+      <div
+        :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
+      >
+        <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
+        <div class="pc-hand__container">
+          <!-- 头部导航 -->
+          <div class="navbar">
+            <img class="logo" src="/static/img/solopick-logo-l.png" @click="handleGoIndex()">
+            <div class="handle-pick">
+              <div class="top" @click="isShowLanguagePick=!isShowLanguagePick">
+                <span>简体中文</span>
+                <img class="jian-tou" src="/static/img/arrow-down-break.png" alt>
+                <language
+                  :isShowLanguagePick="isShowLanguagePick"
+                  v-on:handleSwichLanguage="handleSwichLanguage"
+                ></language>
+              </div>
+              <div class="bottom">
+                <div
+                  class="span"
+                  v-for="(item,index) in category"
+                  :key="index"
+                  @click="handleGoOtherPage(item.id)"
+                >
+                  <span>{{languageType=='c'?item.name:item.eName}}</span>
+                  <p v-show="item.id == categoryActive" class="ren-line"></p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- 左边的文字 首页-->
-        <div class="left-text">
-          <div class="title-text">
-            <span>新</span>国货出海第一渠道
-          </div>
-          <div class="discription-text">我们输送中国制造业优质品牌到海外市场，致力于输送中国制造业优质品牌到海外市场，真正让“中国制造”落于实地。</div>
-          <div class="call-me__button">
-            <span>关于我们</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 产品图片 -->
-      <img class="product-photo" src="/static/img/white-products.png" alt>
-
-      <div class="bottom-discription">
-        <div class="text-box">
-          <div class="title">新国货出海</div>
-          <div class="disciption-one">中国品牌出海最佳时机</div>
-          <div class="disciption-two">中国制造业高质量发展，涌现一批以用户为中心，打造涵盖美学设计、价值标签等个性特征的优质企业与品牌，国际竞争力不断提高。</div>
-          <div class="disciption-three">而随着走向全球的中国品牌日益增多，全球消费者的认可度逐年提升，现在正值中国品牌海外扩张的有利时机。</div>
-        </div>
-        <img src="/static/img/best-time.jpg" alt>
-      </div>
-      <!-- 平台价值 -->
-      <div class="ping-tai">
-        <div class="hand-text">平台价值</div>
-        <div class="pick-text">为什么选择SOLOPICK</div>
-        <div class="pick-so__discripion">洞察消费者诉求，连接丰富的海外渠道资源与自身的的头部品牌制造商</div>
-        <div class="item-box">
-          <div
-            class="item"
-            :class="index==1?'margin-left__right':''"
-            v-for="(item,index) in bigWindowPickMe"
-            :key="index"
-          >
-            <img class="item-img" :src="item.image" alt>
-            <div class="item-title">{{item.title}}</div>
-            <p class="item-discription">{{item.name}}</p>
+          <!-- 左边的文字 首页-->
+          <div class="left-text">
+            <div class="title-text">
+              <span>新</span>国货出海第一渠道
+            </div>
+            <div class="discription-text">我们输送中国制造业优质品牌到海外市场，致力于输送中国制造业优质品牌到海外市场，真正让“中国制造”落于实地。</div>
+            <div class="call-me__button">
+              <span>关于我们</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!--  小米有品海外授权 合作品牌-->
-      <div class="brand-join">
-        <!--div class="item">
+        <!-- 产品图片 -->
+        <img class="product-photo" src="/static/img/white-products.png" alt>
+
+        <div class="bottom-discription">
+          <div class="text-box">
+            <div class="title">新国货出海</div>
+            <div class="disciption-one">中国品牌出海最佳时机</div>
+            <div class="disciption-two">中国制造业高质量发展，涌现一批以用户为中心，打造涵盖美学设计、价值标签等个性特征的优质企业与品牌，国际竞争力不断提高。</div>
+            <div class="disciption-three">而随着走向全球的中国品牌日益增多，全球消费者的认可度逐年提升，现在正值中国品牌海外扩张的有利时机。</div>
+          </div>
+          <img src="/static/img/best-time.jpg" alt>
+        </div>
+        <!-- 平台价值 -->
+        <div class="ping-tai">
+          <div class="hand-text">平台价值</div>
+          <div class="pick-text">为什么选择SOLOPICK</div>
+          <div class="pick-so__discripion">洞察消费者诉求，连接丰富的海外渠道资源与自身的的头部品牌制造商</div>
+          <div class="item-box">
+            <div
+              class="item"
+              :class="index==1?'margin-left__right':''"
+              v-for="(item,index) in bigWindowPickMe"
+              :key="index"
+            >
+              <img class="item-img" :src="item.image" alt>
+              <div class="item-title">{{item.title}}</div>
+              <p class="item-discription">{{item.name}}</p>
+            </div>
+          </div>
+        </div>
+
+        <!--  小米有品海外授权 合作品牌-->
+        <div class="brand-join">
+          <!--div class="item">
           <div class="hand-text">合作伙伴</div>
           <div class="middle-text">小米有品海外授权</div>
           <div class="bottom-box">
@@ -81,62 +86,210 @@
             <p>小米有品是小米旗下精品生活电商平台，也是小米“新零售”战略的重要一环。依托小米生态链体系，延续小米的“爆品”模式，致力于将“小米式的性价比”延伸到更广泛的家居生活领域。</p>
           </div>
           <img class="xia-jian__tou" src="/static/img/arrow-down-break.png" alt>
-        </div-->
+          </div-->
 
-        <div class="item">
-          <div class="hand-text">品质 x 科技 x 美学</div>
-          <div class="middle-text">合作品牌</div>
-          <div class="bottom-box">
-            <p>SOLOPICK与国内众多头部平台、品牌和制造商展开合作，以品质生活和美学生活为主题，甄选智能家居、家用生活、数码配件等品类的精选产品。</p>
-          </div>
-          <div class="join-function__btn">合作流程</div>
-          <div class="brad-icon__box">
-            <img
-              :src="'/static/img/'+item"
-              v-for="(item, index) in brandIcon"
-              :key="index"
-              v-if="windowWidth == 'bigWindow'"
-            >
-            <img
-              :src="'/static/img/'+item"
-              v-for="(item, index) in brandIconMiddle"
-              :key="index"
-              v-if="windowWidth == 'middleWindow' || windowWidth == 'smallWindow'"
-            >
+          <div class="item">
+            <div class="hand-text">品质 x 科技 x 美学</div>
+            <div class="middle-text">合作品牌</div>
+            <div class="bottom-box">
+              <p>SOLOPICK与国内众多头部平台、品牌和制造商展开合作，以品质生活和美学生活为主题，甄选智能家居、家用生活、数码配件等品类的精选产品。</p>
+            </div>
+            <div class="join-function__btn">合作流程</div>
+            <div class="brad-icon__box">
+              <img
+                :src="'/static/img/'+item"
+                v-for="(item, index) in brandIcon"
+                :key="index"
+                v-if="windowWidth == 'bigWindow'"
+              >
+              <img
+                :src="'/static/img/'+item"
+                v-for="(item, index) in brandIconMiddle"
+                :key="index"
+                v-if="windowWidth == 'middleWindow' || windowWidth == 'smallWindow'"
+              >
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- 中间产品集合大图 -->
-      <img
-        class="middle-product__photo--big"
-        src="/static/img/cooper-products-1.jpg"
-        v-if="windowWidth == 'middleWindow' || windowWidth == 'bigWindow'"
+        <!-- 中间产品集合大图 -->
+        <img
+          class="middle-product__photo--big"
+          src="/static/img/cooper-products-1.jpg"
+          v-if="windowWidth == 'middleWindow' || windowWidth == 'bigWindow'"
+        >
+        <div class="middle-product__photo--big" v-if="windowWidth == 'smallWindow'"></div>
+
+        <!-- 加盟的头部 -->
+        <div class="join-hand">
+          <img class="xia-jian__tou" src="/static/img/arrow-down-break.png" alt>
+          <div class="top">智美生活馆</div>
+          <div class="bottom">店铺加盟</div>
+        </div>
+
+        <!-- 加盟的产品图片以及说明 -->
+        <div class="join-store__product">
+          <div class="left-discription">
+            <div class="ont-line__text">精选生活</div>
+            <div class="two-line__text">店铺合作伙伴</div>
+            <div class="three-line__box">
+              <p class="top">SOLOPICK以好产品为准则，产品涵盖生活家电与生活家居，SKU多达7000余种。</p>
+              <p class="bottom">如果你也喜爱和认同SOLOPICK，欢迎加入成为我们的一份子。</p>
+            </div>
+            <div class="btn">加盟政策</div>
+          </div>
+          <img class="right-photo" src="/static/img/about-store.jpg" alt>
+        </div>
+
+        <pc-foot-join :languageType="languageType"></pc-foot-join>
+      </div>
+    </div>
+
+    <!-- 英文 -->
+    <div v-else>
+      <!-- <pc-hand></pc-hand> -->
+      <div
+        :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
       >
-      <div class="middle-product__photo--big" v-if="windowWidth == 'smallWindow'"></div>
-
-      <!-- 加盟的头部 -->
-      <div class="join-hand">
-        <img class="xia-jian__tou" src="/static/img/arrow-down-break.png" alt>
-        <div class="top">智美生活馆</div>
-        <div class="bottom">店铺加盟</div>
-      </div>
-
-      <!-- 加盟的产品图片以及说明 -->
-      <div class="join-store__product">
-        <div class="left-discription">
-          <div class="ont-line__text">精选生活</div>
-          <div class="two-line__text">店铺合作伙伴</div>
-          <div class="three-line__box">
-            <p class="top">SOLOPICK以好产品为准则，产品涵盖生活家电与生活家居，SKU多达7000余种。</p>
-            <p class="bottom">如果你也喜爱和认同SOLOPICK，欢迎加入成为我们的一份子。</p>
+        <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
+        <div class="pc-hand__container">
+          <!-- 头部导航 -->
+          <div class="navbar">
+            <img class="logo" src="/static/img/solopick-logo-l.png" @click="handleGoIndex()">
+            <div class="handle-pick">
+              <div class="top" @click="isShowLanguagePick=!isShowLanguagePick">
+                <span>English</span>
+                <img class="jian-tou" src="/static/img/arrow-down-break.png" alt>
+                <language
+                  :isShowLanguagePick="isShowLanguagePick"
+                  v-on:handleSwichLanguage="handleSwichLanguage"
+                ></language>
+              </div>
+              <div class="bottom">
+                <div
+                  class="span"
+                  v-for="(item,index) in category"
+                  :key="index"
+                  @click="handleGoOtherPage(item.id)"
+                >
+                  <span>{{item.eName}}</span>
+                  <p v-show="item.id == categoryActive" class="ren-line"></p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="btn">加盟政策</div>
-        </div>
-        <img class="right-photo" src="/static/img/about-store.jpg" alt>
-      </div>
 
-      <pc-foot-join></pc-foot-join>
+          <!-- 左边的文字 首页-->
+          <div class="left-text">
+            <div class="title-text">
+              The First Channel for New China-made Goods to Go Overseas / Go Global with Us
+            </div>
+            <div class="discription-text">We are committed to delivering high-quality products, Chinese manufacturing industry to overseas markets so as to truly let "Made in China" enter the lives of ordinary people.</div>
+            <div class="call-me__button">
+              <span>about us</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 产品图片 -->
+        <img class="product-photo" src="/static/img/white-products.png" alt>
+
+        <div class="bottom-discription">
+          <div class="text-box">
+            <div class="title">NEW MADE-IN-CHINA PRODUCTS TO GO OVERSEAS</div>
+            <div class="disciption-one">The Best Time for Chinese Brands to Expand in Overseas Markets</div>
+            <div class="disciption-two">With the high-quality development of China's manufacturing industry, a large number of excellent enterprises and brands have emerged that centers on users and build individual characteristics including aesthetic design and value labels. At the same time, their international competitiveness is constantly improving.
+</div>
+            <div class="disciption-three">In addition, with the increasing number of Chinese brands going overseas, the recognition of global consumers is increasing year by year, so now, it will be the best time for Chinese brands to expand in overseas markets.</div>
+          </div>
+          <img src="/static/img/best-time.jpg" alt>
+        </div>
+        <!-- 平台价值 -->
+        <div class="ping-tai height-auto">
+          <div class="hand-text">OUR VALUE</div>
+          <div class="pick-text">Why Us?</div>
+          <div class="pick-so__discripion">Our team better understands consumers' needs, get timely insight into consumers' demands, and connect a wealth of overseas channel resources with its own primary brand manufacturer.</div>
+          <div class="item-box">
+            <div
+              class="item"
+              :class="index==1?'margin-left__right':''"
+              v-for="(item,index) in bigWindowPickMe"
+              :key="index"
+            >
+              <img class="item-img" :src="item.image" alt>
+              <div class="item-title">{{item.etitle}}</div>
+              <p class="item-discription">{{item.ename}}</p>
+            </div>
+          </div>
+        </div>
+
+        <!--  小米有品海外授权 合作品牌-->
+        <div class="brand-join">
+          <!--div class="item">
+          <div class="hand-text">合作伙伴</div>
+          <div class="middle-text">小米有品海外授权</div>
+          <div class="bottom-box">
+            <img class="xiao-mi__icon" src="/static/img/xiaomiyoupin-logo-l.png" alt>
+            <p>小米有品是小米旗下精品生活电商平台，也是小米“新零售”战略的重要一环。依托小米生态链体系，延续小米的“爆品”模式，致力于将“小米式的性价比”延伸到更广泛的家居生活领域。</p>
+          </div>
+          <img class="xia-jian__tou" src="/static/img/arrow-down-break.png" alt>
+          </div-->
+
+          <div class="item">
+            <div class="hand-text">Quality x Technology x Aesthetics</div>
+            <div class="middle-text">Cooperative Brand</div>
+            <div class="bottom-box">
+              <p>SOLOPICK cooperates with many top platforms, brands and manufacturers in China. With the theme of quality life and aesthetic life, select the competitive products of smart home, household life, digital accessories and other categories.</p>
+            </div>
+            <div class="join-function__btn">COOPERATION PROCEDURE</div>
+            <div class="brad-icon__box">
+              <img
+                :src="'/static/img/'+item"
+                v-for="(item, index) in brandIcon"
+                :key="index"
+                v-if="windowWidth == 'bigWindow'"
+              >
+              <img
+                :src="'/static/img/'+item"
+                v-for="(item, index) in brandIconMiddle"
+                :key="index"
+                v-if="windowWidth == 'middleWindow' || windowWidth == 'smallWindow'"
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- 中间产品集合大图 -->
+        <img
+          class="middle-product__photo--big"
+          src="/static/img/cooper-products-1.jpg"
+          v-if="windowWidth == 'middleWindow' || windowWidth == 'bigWindow'"
+        >
+        <div class="middle-product__photo--big" v-if="windowWidth == 'smallWindow'"></div>
+
+        <!-- 加盟的头部 -->
+        <div class="join-hand">
+          <img class="xia-jian__tou" src="/static/img/arrow-down-break.png" alt>
+          <div class="top">The Life Hall of Intelligence and Aesthetics</div>
+          <div class="bottom">Joining store</div>
+        </div>
+
+        <!-- 加盟的产品图片以及说明 -->
+        <div class="join-store__product">
+          <div class="left-discription">
+            <div class="ont-line__text">A quality life</div>
+            <div class="two-line__text">Store Partner</div>
+            <div class="three-line__box">
+              <p class="top margin-bottom--0">SOLOPICK always takes good products for the guidline, and its product category covers household appliances and living homes, with more than 7,000 SKUs.</p>
+              <p class="bottom">If you also like and agree with SOLOPICK's business philosophy, welcome to join us.</p>
+            </div>
+            <div class="btn join-store__btn">JOINING STORE</div>
+          </div>
+          <img class="right-photo" src="/static/img/about-store.jpg" alt>
+        </div>
+
+        <pc-foot-join :languageType="languageType"></pc-foot-join>
+      </div>
     </div>
   </div>
 </template>
@@ -149,23 +302,30 @@ export default {
     return {
       windowWidth: '', // 屏幕尺寸
 
+      languageType: 'c', // 语言类型
+      isShowLanguagePick: false, // 是否显示语言选择框
+
       categoryActive: 'index',
       category: [
         {
           id: 'about',
-          name: '关于我们'
+          name: '关于我们',
+          eName: 'ABOUT US'
         },
         {
           id: 'store',
-          name: '店铺'
+          name: '店铺',
+          eName: 'STORE'
         },
         {
           id: 'brand',
-          name: '品牌合作'
+          name: '品牌合作',
+          eName: 'BRAND'
         },
         {
           id: 'call_me',
-          name: '联系'
+          name: '联系',
+          eName: 'CONTACT'
         }
       ],
 
@@ -174,17 +334,23 @@ export default {
         {
           image: '/static/img/icon-why-us-1.png',
           title: '洞察新兴市场消费诉求',
-          name: 'SOLOPICK 专业市场选品团队，根据……的产品理念，从线下零售切入。'
+          etitle: 'Keen insight into consumer demand in emerging markets',
+          name: 'SOLOPICK 专业市场选品团队，根据……的产品理念，从线下零售切入。',
+          ename: 'SOLOPICK professional product selection team will cut in from offline retail according to the concept of [Quality × Technology × Aesthetics  = Intelligent Life].'
         },
         {
           image: '/static/img/icon-why-us-2.png',
           title: '深耕海外头部渠道',
-          name: '覆盖全球近120个主要国家和地区，整合上千家海外经销商资源，拥有丰富的线上线下资源。'
+          etitle: 'Deeply plough the first channel of overseas market',
+          name: '覆盖全球近120个主要国家和地区，整合上千家海外经销商资源，拥有丰富的线上线下资源。',
+          ename: 'It covers nearly 120 major countries and regions in the world, integrates thousands of overseas dealer resources, and has rich online and offline resources.'
         },
         {
           image: '/static/img/icon-why-us-3.png',
           title: '共同构建出海平台',
-          name: '为优质中国品牌构建出海平台，连接全球消费者与中国制造。'
+          etitle: 'Jointly build a platform for going overseas',
+          name: '为优质中国品牌构建出海平台，连接全球消费者与中国制造。',
+          ename: 'We are committed to building a platform for high-quality Chinese brands  to go overseas, and connecting global consumers with Chinese manufacturing industry.'
         }
       ],
       // 品牌商标
@@ -204,11 +370,23 @@ export default {
     }
   },
   methods: {
+    // 跳转首页
+    handleGoIndex () {
+      this.$router.push({path:'Index'})
+    },
     // 跳转网页
     handleGoOtherPage (e) {
       this.categoryActive = e
       this.$router.push({path: e})
+    },
+    // 语言切换
+    handleSwichLanguage (e) {
+      this.languageType = e
     }
+  },
+  activated () {
+    this.categoryActive = window.location.hash.split('/')[1]
+    this.languageType = this.$store.state.languageType
   }
 }
 </script>
@@ -258,6 +436,7 @@ export default {
         height: 0.62rem;
         width: 1.2rem;
         margin-left: 4rem;
+        cursor: pointer;
       }
       .handle-pick {
         flex: 1;
@@ -275,8 +454,10 @@ export default {
           margin-left: 0.01rem;
         }
         .top {
+          position: relative;
           height: 0.2rem;
           border-bottom: 0.01rem solid white;
+          cursor: pointer;
         }
         .bottom {
           padding-top: 0.2rem;
@@ -303,6 +484,7 @@ export default {
       top: 50%;
       transform: translateY(-50%);
       .title-text {
+        width: 6.26rem;
         display: flex;
         flex-direction: row;
         font-size: 0.48rem;
@@ -588,6 +770,7 @@ export default {
         height: 0.3rem;
         width: 0.6rem;
         margin-left: 0.5rem;
+        cursor: pointer;
       }
       .handle-pick {
         flex: 1;
@@ -605,8 +788,10 @@ export default {
           margin-left: 0.01rem;
         }
         .top {
+          position: relative;
           height: 0.2rem;
           border-bottom: 0.01rem solid white;
+          cursor: pointer;
         }
         .bottom {
           padding-top: 0.2rem;
@@ -750,6 +935,9 @@ export default {
       padding-top: 0.6rem;
       padding-left: 0.97rem;
       background: rgba(246, 248, 249, 1);
+      .join-store__btn{
+        margin-top: 0.5rem;
+      }
       .ont-line__text {
         height: 0.17rem;
         font-size: 0.12rem;
@@ -778,6 +966,9 @@ export default {
         .top {
           margin-bottom: 0.5rem;
         }
+        .top.margin-bottom--0{
+          margin-bottom: 0;
+        }
       }
       .btn {
         display: inline-block;
@@ -800,7 +991,9 @@ export default {
     height: 3.28rem;
     border-radius: 5px;
   }
-
+  .height-auto.ping-tai{
+    height: auto;
+  }
   .ping-tai {
     height: 11.86rem;
     background: rgba(246, 248, 249, 1);
@@ -944,7 +1137,7 @@ export default {
     flex-direction: column;
     width: 3.2rem;
     height: 5.38rem;
-    padding-top: 0.4rem;
+    padding-top: 0.16rem;
     background: url("/static/img/1-header-bg-imgs.jpg") no-repeat;
     background-size: auto 100%;
     margin-bottom: 0.57rem;
@@ -954,7 +1147,7 @@ export default {
       .logo {
         height: 0.3rem;
         width: 0.6rem;
-        margin-left: 0.5rem;
+        margin-left: 0.2rem;
       }
       .handle-pick {
         flex: 1;
@@ -972,8 +1165,10 @@ export default {
           margin-left: 0.01rem;
         }
         .top {
+          position: relative;
           height: 0.2rem;
           border-bottom: 0.01rem solid white;
+          cursor: pointer;
         }
         .bottom {
           padding-top: 0.2rem;

@@ -51,6 +51,9 @@ export default {
       this.$router.push({path: e})
       console.log(this.categoryActive)
     }
+  },
+  activated () {
+    this.categoryActive = window.location.hash.split('/')[1]
   }
 }
 </script>

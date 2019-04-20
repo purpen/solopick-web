@@ -20,7 +20,7 @@
           <img src="/static/img/icon-fb.png" alt>
           <img src="/static/img/icon-ins.png" alt>
         </div>
-        <div>简体中文</div>
+        <div>{{languageType=='c'?'简体中文':'English'}}</div>
       </div>
     </div>
   </div>
@@ -32,8 +32,14 @@ export default {
   name: 'PcHand',
   data () {
     return {
-      windowWidth: ''
+      windowWidth: '',
+      languageType: 'c'
     }
+  },
+  created () {
+    this.$bus.on('pc-foot', (val) => {
+      this.languageType = val
+    })
   },
   mounted () {
     // 计算样式

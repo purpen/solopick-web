@@ -1,43 +1,49 @@
 <template>
-  <div
-    :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
-  >
-  <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
-    <div class="pc-hand__container">
-      <!-- 头部导航 -->
-      <div class="navbar">
-        <img class="logo" src="/static/img/solopick-logo-l.png" alt>
-        <div class="handle-pick">
-          <div class="top">
-            <span>简体中文</span>
-            <img class="jian-tou" src="/static/img/arrow-down-break.png" alt>
-          </div>
-          <div class="bottom">
-            <div
-              class="span"
-              v-for="(item,index) in category"
-              :key="index"
-              @click="handleGoOtherPage(item.id)"
-            >
-              <span>{{item.name}}</span>
-              <p v-show="item.id == categoryActive" class="ren-line"></p>
+  <div>
+    <div
+      v-if="languageType=='c'"
+      :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
+    >
+      <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
+      <div class="pc-hand__container">
+        <!-- 头部导航 -->
+        <div class="navbar">
+          <img class="logo" src="/static/img/solopick-logo-l.png" @click="handleGoIndex()">
+          <div class="handle-pick">
+            <div class="top" @click="isShowLanguagePick=!isShowLanguagePick">
+              <span>{{languageType=='c'?'简体中文':'English'}}</span>
+              <img class="jian-tou" src="/static/img/arrow-down-break.png" alt>
+              <language
+                :isShowLanguagePick="isShowLanguagePick"
+                v-on:handleSwichLanguage="handleSwichLanguage"
+              ></language>
+            </div>
+            <div class="bottom">
+              <div
+                class="span"
+                v-for="(item,index) in category"
+                :key="index"
+                @click="handleGoOtherPage(item.id)"
+              >
+                <span>{{languageType=='c'?item.name:item.eName}}</span>
+                <p v-show="item.id == categoryActive" class="ren-line"></p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- 左边的文字 品牌合作-->
-      <div class="left-text">
-        <div class="title-text">
-          <span>品</span>牌合作
+        <!-- 左边的文字 品牌合作-->
+        <div class="left-text">
+          <div class="title-text">
+            <span>品</span>牌合作
+          </div>
+          <div
+            class="discription-text"
+          >SOLOPICK与众多头部平台、品牌和制造商展开合作，以品质生活和美学生活为主题，甄选智能家居、家用生活、数码配件等品类的产品。</div>
         </div>
-        <div
-          class="discription-text"
-        >SOLOPICK与众多头部平台、品牌和制造商展开合作，以品质生活和美学生活为主题，甄选智能家居、家用生活、数码配件等品类的产品。</div>
       </div>
-    </div>
 
-    <!--div class="top-discription">
+      <!--div class="top-discription">
       <p class="frend">合作伙伴</p>
       <p class="xiaomi-youpin">小米有品海外授权</p>
       <div class="xiao-mi__discription">
@@ -46,30 +52,110 @@
           class="discription-box"
         >小米有品是小米旗下精品生活电商平台，也是小米“新零售”战略的重要一环。依托小米生态链体系，延续小米的“爆品”模式，致力于将“小米式的性价比”延伸到更广泛的家居生活领域。</div>
       </div>
-    </div-->
+      </div-->
 
-    <div class="brand-icon__list">
-      <img :src="'/static/img/'+item" alt v-for="(item, index) in brandList" :key="index">
-      <!-- <div class="loading-more">加载更多…</div> -->
-    </div>
-
-    <div class="public-location-box">
-      <div class="top">
-        <p class="one-line">诚邀合作</p>
-        <p class="two-line">店铺加盟流程</p>
+      <div class="brand-icon__list">
+        <img :src="'/static/img/'+item" alt v-for="(item, index) in brandList" :key="index">
+        <!-- <div class="loading-more">加载更多…</div> -->
       </div>
-      <div class="bottom">
-        <div class="bottom-item" v-for="(item,index) in joinStoreList" :key="index">
-          <div class="list-number">{{index+1}}</div>
-          <div class="right-text">
-            <p class="top-text">{{item.top}}</p>
-            <p class="bottom-text">{{item.bottom}}</p>
+
+      <div class="public-location-box">
+        <div class="top">
+          <p class="one-line">诚邀合作</p>
+          <p class="two-line">店铺加盟流程</p>
+        </div>
+        <div class="bottom">
+          <div class="bottom-item" v-for="(item,index) in joinStoreList" :key="index">
+            <div class="list-number">{{index+1}}</div>
+            <div class="right-text">
+              <p class="top-text">{{item.top}}</p>
+              <p class="bottom-text">{{item.bottom}}</p>
+            </div>
           </div>
         </div>
       </div>
+
+      <pc-foot-join :languageType="languageType"></pc-foot-join>
     </div>
 
-    <pc-foot-join></pc-foot-join>
+    <!-- 英文 -->
+    <div
+      v-else
+      :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
+    >
+      <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
+      <div class="pc-hand__container">
+        <!-- 头部导航 -->
+        <div class="navbar">
+          <img class="logo" src="/static/img/solopick-logo-l.png" @click="handleGoIndex()">
+          <div class="handle-pick">
+            <div class="top" @click="isShowLanguagePick=!isShowLanguagePick">
+              <span>English</span>
+              <img class="jian-tou" src="/static/img/arrow-down-break.png" alt>
+              <language
+                :isShowLanguagePick="isShowLanguagePick"
+                v-on:handleSwichLanguage="handleSwichLanguage"
+              ></language>
+            </div>
+            <div class="bottom">
+              <div
+                class="span"
+                v-for="(item,index) in category"
+                :key="index"
+                @click="handleGoOtherPage(item.id)"
+              >
+                <span>{{languageType=='c'?item.name:item.eName}}</span>
+                <p v-show="item.id == categoryActive" class="ren-line"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 左边的文字 品牌合作-->
+        <div class="left-text">
+          <div class="title-text">
+            rand Cooperation
+          </div>
+          <div
+            class="discription-text"
+          >SOLOPICK cooperates with many top platforms, brands and manufacturers in China. With the theme of quality life and aesthetic life, select the competitive products of smart home, household life, digital accessories and other categories.</div>
+        </div>
+      </div>
+
+      <!--div class="top-discription">
+      <p class="frend">合作伙伴</p>
+      <p class="xiaomi-youpin">小米有品海外授权</p>
+      <div class="xiao-mi__discription">
+        <img class="xiaomi-icon" src="/static/img/xiaomiyoupin-logo-l.png" alt>
+        <div
+          class="discription-box"
+        >小米有品是小米旗下精品生活电商平台，也是小米“新零售”战略的重要一环。依托小米生态链体系，延续小米的“爆品”模式，致力于将“小米式的性价比”延伸到更广泛的家居生活领域。</div>
+      </div>
+      </div-->
+
+      <div class="brand-icon__list">
+        <img :src="'/static/img/'+item" alt v-for="(item, index) in brandList" :key="index">
+        <!-- <div class="loading-more">加载更多…</div> -->
+      </div>
+
+      <div class="public-location-box">
+        <div class="top">
+          <p class="one-line">SINCERELY INVITE COOPERATE</p>
+          <p class="two-line">The Procedure of Brand Cooperation</p>
+        </div>
+        <div class="bottom">
+          <div class="bottom-item" v-for="(item,index) in joinStoreList" :key="index">
+            <div class="list-number">{{index+1}}</div>
+            <div class="right-text">
+              <p class="top-text">{{item.etop}}</p>
+              <p class="bottom-text">{{item.ebottom}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <pc-foot-join :languageType="languageType"></pc-foot-join>
+    </div>
   </div>
 </template>
 
@@ -81,23 +167,30 @@ export default {
     return {
       windowWidth: '', // 屏幕尺寸
 
+      languageType: 'c', // 语言类型
+      isShowLanguagePick: false, // 是否显示语言选择框
+
       categoryActive: 'index',
       category: [
         {
           id: 'about',
-          name: '关于我们'
+          name: '关于我们',
+          eName: 'ABOUT US'
         },
         {
           id: 'store',
-          name: '店铺'
+          name: '店铺',
+          eName: 'STORE'
         },
         {
           id: 'brand',
-          name: '品牌合作'
+          name: '品牌合作',
+          eName: 'BRAND'
         },
         {
           id: 'call_me',
-          name: '联系'
+          name: '联系',
+          eName: 'CONTACT'
         }
       ],
 
@@ -105,15 +198,21 @@ export default {
       joinStoreList: [
         {
           top: '取得联系',
-          bottom: '品牌商请通过020-##########，与我们取得联系，确认合作意向后需寄送产品样品'
+          bottom: '品牌商请通过020-##########，与我们取得联系，确认合作意向后需寄送产品样品',
+          etop: 'Contact SOLOPICK',
+          ebottom: 'Brands and Manufacturers please contact us through 020-xxxx or email xxxxxxx@solopick.com.'
         },
         {
           top: '产品评测',
-          bottom: 'SOLOPICK将对产品样品进行市场调研分析和产品评测，产品通过测试和评测后双方签订合作协议'
+          bottom: 'SOLOPICK将对产品样品进行市场调研分析和产品评测，产品通过测试和评测后双方签订合作协议',
+          etop: 'Product evaluation',
+          ebottom: 'SOLOPICK will conduct market research analysis and product evaluation on product samples. Only after the products pass the test and evaluation will the two parties sign a cooperation agreement.'
         },
         {
           top: '产品采买',
-          bottom: '根据市场调研分析和产品评测报告过，SOLOPICK将产品添加至产品库，并根据市场需求进行采购'
+          bottom: '根据市场调研分析和产品评测报告过，SOLOPICK将产品添加至产品库，并根据市场需求进行采购',
+          etop: 'Product procurement',
+          ebottom: 'SOLOPICK will add products to the product library and purchases according to market demand, based on the market research analysis and product evaluation report.'
         }
       ]
     }
@@ -128,11 +227,23 @@ export default {
     }
   },
   methods: {
+    // 跳转首页
+    handleGoIndex () {
+      this.$router.push({path:'Index'})
+    },
     // 跳转网页
     handleGoOtherPage (e) {
       this.categoryActive = e
       this.$router.push({path: e})
+    },
+    // 语言切换
+    handleSwichLanguage (e) {
+      this.languageType = e
     }
+  },
+  activated () {
+    this.categoryActive = window.location.hash.split('/')[1]
+    this.languageType = this.$store.state.languageType
   }
 }
 </script>
@@ -156,6 +267,7 @@ export default {
         height: 0.62rem;
         width: 1.2rem;
         margin-left: 4rem;
+        cursor: pointer;
       }
       .handle-pick {
         flex: 1;
@@ -173,8 +285,10 @@ export default {
           margin-left: 0.01rem;
         }
         .top {
+          position: relative;
           height: 0.2rem;
           border-bottom: 0.01rem solid white;
+          cursor: pointer;
         }
         .bottom {
           padding-top: 0.2rem;
@@ -286,6 +400,11 @@ export default {
   .public-location-box {
     .bottom {
       height: 4.53rem;
+      .bottom-item{
+        .right-text{
+          flex: 1;
+        }
+      }
     }
   }
 }
@@ -307,6 +426,7 @@ export default {
         height: 0.3rem;
         width: 0.6rem;
         margin-left: 0.5rem;
+        cursor: pointer;
       }
       .handle-pick {
         flex: 1;
@@ -324,8 +444,10 @@ export default {
           margin-left: 0.01rem;
         }
         .top {
+          position: relative;
           height: 0.2rem;
           border-bottom: 0.01rem solid white;
+          cursor: pointer;
         }
         .bottom {
           padding-top: 0.2rem;
@@ -505,6 +627,7 @@ export default {
         color: rgba(255, 255, 255, 1);
         line-height: 0.2px;
         .jian-tou {
+          position: relative;
           width: 0.09rem;
           height: 0.06rem;
           margin-left: 0.01rem;
@@ -512,6 +635,7 @@ export default {
         .top {
           height: 0.2rem;
           border-bottom: 0.01rem solid white;
+          cursor: pointer;
         }
         .bottom {
           padding-top: 0.2rem;
@@ -657,6 +781,9 @@ export default {
         .list-number {
           margin-right: 0;
           margin-bottom: 0.17rem;
+        }
+        .right-text{
+          flex: 1;
         }
       }
       .right-text {

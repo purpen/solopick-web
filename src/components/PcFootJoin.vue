@@ -1,25 +1,55 @@
 <template>
-  <div
-    :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'">
-    <div class="join-hand">
-      <img class="xia-jian__tou" src="/static/img/arrow-down-break.png" alt>
-      <div class="top">联系我们</div>
-      <div class="bottom">诚邀全球范围合作</div>
-    </div>
-
-    <div class="bottom-brand__join">
-      <div class="public-join__box--item margin-bottom__40">
-        <img class="icon" src="/static/img/icon-coop-brand.png" alt>
-        <div class="title">品牌入驻</div>
-        <div class="discription">我们期盼将高品质、高颜值的产品推出海外市场，为您的品牌抢占新兴市场的下一个拐点。</div>
-        <div class="call-me">联系我们</div>
+  <div>
+    <div v-if="languageType=='c'"
+      :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
+    >
+      <div class="join-hand">
+        <img class="xia-jian__tou" src="/static/img/arrow-down-break.png" alt>
+        <div class="top">联系我们</div>
+        <div class="bottom">诚邀全球范围合作</div>
       </div>
 
-      <div class="public-join__box--item margin-left--30px">
-        <img class="icon" src="/static/img/icon-coop-store.png" alt>
-        <div class="title">店铺加盟</div>
-        <div class="discription">商场、SHOPPING MALL、商业街等人流量相对集中的地段。</div>
-        <div class="call-me">联系我们</div>
+      <div class="bottom-brand__join">
+        <div class="public-join__box--item margin-bottom__40">
+          <img class="icon" src="/static/img/icon-coop-brand.png" alt>
+          <div class="title">品牌入驻</div>
+          <div class="discription">我们期盼将高品质、高颜值的产品推出海外市场，为您的品牌抢占新兴市场的下一个拐点。</div>
+          <div class="call-me">联系我们</div>
+        </div>
+
+        <div class="public-join__box--item margin-left--30px">
+          <img class="icon" src="/static/img/icon-coop-store.png" alt>
+          <div class="title">店铺加盟</div>
+          <div class="discription">商场、SHOPPING MALL、商业街等人流量相对集中的地段。</div>
+          <div class="call-me">联系我们</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 英文 -->
+    <div v-else
+      :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
+    >
+      <div class="join-hand">
+        <img class="xia-jian__tou" src="/static/img/arrow-down-break.png" alt>
+        <div class="top">Contact us </div>
+        <div class="bottom">Sincerely Invite the Worldwide Cooperation</div>
+      </div>
+
+      <div class="bottom-brand__join">
+        <div class="public-join__box--item margin-bottom__40">
+          <img class="icon" src="/static/img/icon-coop-brand.png" alt>
+          <div class="title">Brand Cooperation</div>
+          <div class="discription">SOLOPICK looks forward to launching high-quality and high-value products into overseas markets and seizing the next turning point in emerging markets for your brand.</div>
+          <div class="call-me">CONTACT US</div>
+        </div>
+
+        <div class="public-join__box--item margin-left--30px">
+          <img class="icon" src="/static/img/icon-coop-store.png" alt>
+          <div class="title">Joining Stores</div>
+          <div class="discription">Shopping malls, commercial streets, pedestrian precincts, subway proximity, near schools and other areas where traffic is relatively concentrated.</div>
+          <div class="call-me">CONTACT US</div>
+        </div>
       </div>
     </div>
   </div>
@@ -29,6 +59,7 @@
 import * as global from '@/global/index'
 export default {
   name: 'PcFootJoin',
+  props: ['languageType'],
   data () {
     return {
       windowWidth: '' // 屏幕尺寸
@@ -86,7 +117,7 @@ export default {
   }
 }
 
-.middle-window{
+.middle-window {
   .join-hand {
     display: flex;
     flex-direction: column;
@@ -119,15 +150,15 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    .public-join__box--item{
+    .public-join__box--item {
     }
   }
-  .margin-left--30px{
+  .margin-left--30px {
     margin-top: 0.4rem;
   }
 }
 
-.small--window{
+.small--window {
   .join-hand {
     display: flex;
     flex-direction: column;
@@ -159,27 +190,27 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    .public-join__box--item{
+    .public-join__box--item {
       margin-top: 0rem;
-      width:3.20rem;
-      height:5.04rem;
-      background:rgba(255,255,255,1);
-      box-shadow:0px 2px 9px 0px rgba(0,0,0,0.14);
-      border-radius:5px;
-      .discription{
-        width:2.70rem;
-        font-size:0.16rem;
-        font-family:PingFangSC-Regular;
-        font-weight:400;
-        color:rgba(84,86,90,1);
-        line-height:0.28rem;
+      width: 3.2rem;
+      height: 5.04rem;
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.14);
+      border-radius: 5px;
+      .discription {
+        width: 2.7rem;
+        font-size: 0.16rem;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(84, 86, 90, 1);
+        line-height: 0.28rem;
       }
     }
-    .margin-bottom__40{
+    .margin-bottom__40 {
       margin-bottom: 0.4rem;
     }
   }
-  .margin-left--30px{
+  .margin-left--30px {
     margin-top: 0.4rem;
   }
 }
