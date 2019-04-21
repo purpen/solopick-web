@@ -2,7 +2,7 @@
   <div class="container" :class="windowWidth">
     <!-- 中间 -->
     <div class="page-middle">
-      <keep-alive>
+      <keep-alive exclude="['Index', 'Store']">
         <router-view :windowWidth="windowWidth"/>
       </keep-alive>
     </div>
@@ -31,7 +31,6 @@ export default {
     this.windowWidth = global.windowWidth()
     window.onresize = e => {
       this.windowWidth = global.windowWidth()
-      console.log(this.windowWidth)
     }
   },
   methods:{

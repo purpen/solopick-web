@@ -5,7 +5,7 @@
         :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
       >
         <!-- H5的选择项目 -->
-        <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
+        <h5-tab v-if="windowWidth=='smallWindow'" @h5Language="handleSwichH5Language"></h5-tab>
 
         <div class="pc-hand__container">
           <!-- 头部导航 -->
@@ -82,7 +82,7 @@
         :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
       >
         <!-- H5的选择项目 -->
-        <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
+        <h5-tab v-if="windowWidth=='smallWindow'" @h5Language="handleSwichH5Language"></h5-tab>
 
         <div class="pc-hand__container">
           <!-- 头部导航 -->
@@ -113,7 +113,7 @@
 
           <!-- 左边的文字 关于我们-->
           <div class="left-text">
-            <div class="title-text">
+            <div class="title-text margin-bottom__01">
               Introduction
             </div>
             <div class="discription-text">SOLOPICK's original intention is to connect good products with global consumers, and open up wider market space for Chinese innovative brands.</div>
@@ -124,7 +124,7 @@
         <div class="name-from">
           <div class="let">
             <p class="one-line">What is SOLOPICK</p>
-            <p class="two-line middle-text">The Origin of SOLOPICK</p>
+            <p class="two-line middle-text height-auto">The Origin of SOLOPICK</p>
             <p
               class="three-line middle-text"
             >SOLOPICK has the double meanings of "selecting" and "personal taste". The deep meaning advocated by the brand is not blindly pursuing cost performance and labeling, but returning to the true attitude of choosing good products. SOLOPICK will carefully examine every product and pursue a comfortable and convenient life attitude with warmth and emotion.</p>
@@ -135,7 +135,7 @@
         <!-- 选聘理念 -->
         <div class="product-category__box">
           <p class="one-line">About the Intelligence and Aesthetic Life</p>
-          <p class="two-line">The Concept of Selecting Products</p>
+          <p class="two-line height-auto">The Concept of Selecting Products</p>
           <p class="three-line">SOLOPICK advocates pursuing high-quality, returning to life, attaching importance to science and technology, and attaching more importance to the connection between people.</p>
           <div class="product-box">
             <div class="product-box--big" v-for="(item, index) in category" :key="index">
@@ -216,18 +216,22 @@ export default {
     }
   },
   created () {
-      // console.log(this.)
+
   },
   mounted () {
     // 计算样式
     this.windowWidth = global.windowWidth()
-    console.log(this.windowWidth)
-    window.onresize = e => {
+    
+    let resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
+    window.addEventListener(resizeEvt, ()=>{
       this.windowWidth = global.windowWidth()
-      console.log(this.windowWidth)
-    }
+    }, false)
   },
   methods: {
+    // h5语言切换
+    handleSwichH5Language (e) {
+      this.languageType = e
+    },
     // 跳转首页
     handleGoIndex () {
       this.$router.push({path:'Index'})
@@ -737,6 +741,9 @@ export default {
       padding-left: 0.24rem;
       position: absolute;
       top: 0.97rem;
+      .margin-bottom__01.title-text{
+        margin-bottom: 0.1rem;
+      }
       .title-text {
         // height:0.89rem;
         font-size: 0.26rem;
@@ -803,6 +810,9 @@ export default {
         line-height: 0.46rem;
         margin-bottom: 0.1rem;
       }
+      .height-auto.two-line{
+        height: auto;
+      }
       .three-line {
         width: 2.71rem;
         height: 1.63rem;
@@ -838,6 +848,10 @@ export default {
       color: rgba(44, 46, 48, 1);
       line-height: 0.46rem;
       margin: 0.1rem 0 0.2rem;
+    }
+    .height-auto{
+      height: auto;
+      padding: 0 0.24rem;
     }
     .three-line {
       height: 0.64rem;

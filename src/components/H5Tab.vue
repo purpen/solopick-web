@@ -9,7 +9,14 @@
       <div class="pick-box">
         <div class="pick-box__item" v-for="(item,index) in category" :key="index" @click="handleGoOtherPage(item.id)">
           <p class="red-round" :class="item.id == categoryActive?'red-show':''"></p>
-          <span>{{item.name}}</span></div>
+          <span>{{item.name}}</span>
+        </div>
+        
+        <div class="pick-box__item" v-for="item in languageList" :key="item.id" @click="handleSwichLanguage(item.id)">
+          <p class="red-round" :class="item.id == languageActive?'red-show':''"></p>
+          <span>{{item.name}}</span>
+        </div>
+
       </div>
     </div>
   </div>
@@ -38,10 +45,27 @@ export default {
           id: 'call_me',
           name: '联系'
         }
+      ],
+
+      languageActive: 'c',
+      languageList:[
+        {
+          id: 'c',
+          name: '简体中文'
+        },
+        {
+          id: 'e',
+          name: 'English'
+        }
       ]
     }
   },
   methods: {
+    // 切换语言
+    handleSwichLanguage (e) {
+      this.languageActive = e
+      this.$emit('h5Language', e)
+    },
     handleIsShowPick () {
       this.isShow = !this.isShow
     },
@@ -75,6 +99,7 @@ export default {
   z-index: 88;
   background: url('/static/img/1-header-bg-imgs.jpg') no-repeat;
   background-size: auto 100%;
+  overflow: scroll;
   .hand-top{
     background-color:rgba(10,35,61,1);
     display: flex;

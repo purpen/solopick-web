@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import store from './vuex/store'
 import components from './components/global'
-import 'lib-flexible/flexible.js'
+// import 'lib-flexible/flexible.js'
 import VueBus from 'vue-bus' // 兄弟组件通讯
 
 Vue.use(VueBus) // 兄弟组件通讯

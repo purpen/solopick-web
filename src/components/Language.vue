@@ -29,7 +29,6 @@ export default {
     bottom: 0;
     right: 0;
     height: 0.5rem;
-    width: 0.8rem;
     background-color: white;
     animation: lnaguage 0.3s forwards;
     z-index: 10;

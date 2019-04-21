@@ -33,7 +33,7 @@
       <div class="join-hand">
         <img class="xia-jian__tou" src="/static/img/arrow-down-break.png" alt>
         <div class="top">Contact us </div>
-        <div class="bottom">Sincerely Invite the Worldwide Cooperation</div>
+        <div class="bottom padding-about__024">Sincerely Invite the Worldwide Cooperation</div>
       </div>
 
       <div class="bottom-brand__join">
@@ -68,10 +68,10 @@ export default {
   mounted () {
     this.windowWidth = global.windowWidth()
     console.log(this.windowWidth)
-    window.onresize = e => {
+    let resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
+    window.addEventListener(resizeEvt, ()=>{
       this.windowWidth = global.windowWidth()
-      console.log(this.windowWidth)
-    }
+    }, false)
   }
 }
 </script>
@@ -181,6 +181,9 @@ export default {
       font-weight: 400;
       color: rgba(44, 46, 48, 1);
       line-height: 0.46rem;
+    }
+    .padding-about__024.bottom{
+      padding: 0 0.24rem;
     }
   }
   .bottom-brand__join {

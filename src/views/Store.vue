@@ -4,7 +4,7 @@
       <div
         :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
       >
-        <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
+        <h5-tab v-if="windowWidth=='smallWindow'" @h5Language="handleSwichH5Language"></h5-tab>
         <div class="pc-hand__container">
           <!-- 头部导航 -->
           <div class="navbar">
@@ -68,7 +68,7 @@
           <div class="top">
             <p class="one-line">体验SOLOPICK</p>
             <p class="two-line">品牌体验店地址</p>
-            <!-- <p class="one-line">体验SOLOPICK</p> -->
+            <p class="one-line">广州市荔湾区西堤二马路37号 文化公园一层</p>
           </div>
           <img class="bottom-map" src="static/img/store-location.jpg" alt>
         </div>
@@ -82,7 +82,7 @@
       <div
         :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
       >
-        <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
+        <h5-tab v-if="windowWidth=='smallWindow'" @h5Language="handleSwichH5Language"></h5-tab>
         <div class="pc-hand__container">
           <!-- 头部导航 -->
           <div class="navbar">
@@ -230,12 +230,16 @@ export default {
     // 计算样式
     this.windowWidth = global.windowWidth()
     console.log(this.windowWidth)
-    window.onresize = e => {
+    let resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
+    window.addEventListener(resizeEvt, ()=>{
       this.windowWidth = global.windowWidth()
-      console.log(this.windowWidth)
-    }
+    }, false)
   },
   methods: {
+    // h5语言切换
+    handleSwichH5Language (e) {
+      this.languageType = e
+    },
     // 跳转首页
     handleGoIndex () {
       this.$router.push({path:'Index'})

@@ -5,7 +5,7 @@
       <div
         :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
       >
-        <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
+        <h5-tab v-if="windowWidth=='smallWindow'" @h5Language="handleSwichH5Language"></h5-tab>
         <div class="pc-hand__container">
           <!-- 头部导航 -->
           <div class="navbar">
@@ -151,7 +151,7 @@
       <div
         :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
       >
-        <h5-tab v-if="windowWidth=='smallWindow'"></h5-tab>
+        <h5-tab v-if="windowWidth=='smallWindow'" @h5Language="handleSwichH5Language"></h5-tab>
         <div class="pc-hand__container">
           <!-- 头部导航 -->
           <div class="navbar">
@@ -197,7 +197,7 @@
         <div class="bottom-discription">
           <div class="text-box">
             <div class="title">NEW MADE-IN-CHINA PRODUCTS TO GO OVERSEAS</div>
-            <div class="disciption-one">The Best Time for Chinese Brands to Expand in Overseas Markets</div>
+            <div class="disciption-one height-auto">The Best Time for Chinese Brands to Expand in Overseas Markets</div>
             <div class="disciption-two">With the high-quality development of China's manufacturing industry, a large number of excellent enterprises and brands have emerged that centers on users and build individual characteristics including aesthetic design and value labels. At the same time, their international competitiveness is constantly improving.
 </div>
             <div class="disciption-three">In addition, with the increasing number of Chinese brands going overseas, the recognition of global consumers is increasing year by year, so now, it will be the best time for Chinese brands to expand in overseas markets.</div>
@@ -239,7 +239,7 @@
             <div class="hand-text">Quality x Technology x Aesthetics</div>
             <div class="middle-text">Cooperative Brand</div>
             <div class="bottom-box">
-              <p>SOLOPICK cooperates with many top platforms, brands and manufacturers in China. With the theme of quality life and aesthetic life, select the competitive products of smart home, household life, digital accessories and other categories.</p>
+              <p class="height-auto">SOLOPICK cooperates with many top platforms, brands and manufacturers in China. With the theme of quality life and aesthetic life, select the competitive products of smart home, household life, digital accessories and other categories.</p>
             </div>
             <div class="join-function__btn">COOPERATION PROCEDURE</div>
             <div class="brad-icon__box">
@@ -279,7 +279,7 @@
           <div class="left-discription">
             <div class="ont-line__text">A quality life</div>
             <div class="two-line__text">Store Partner</div>
-            <div class="three-line__box">
+            <div class="three-line__box height-auto">
               <p class="top margin-bottom--0">SOLOPICK always takes good products for the guidline, and its product category covers household appliances and living homes, with more than 7,000 SKUs.</p>
               <p class="bottom">If you also like and agree with SOLOPICK's business philosophy, welcome to join us.</p>
             </div>
@@ -360,16 +360,32 @@ export default {
   },
   created () {
   },
+
   mounted () {
     // 计算样式
     this.windowWidth = global.windowWidth()
     console.log(this.windowWidth)
-    window.onresize = e => {
+
+    let resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
+    window.addEventListener(resizeEvt, ()=>{
       this.windowWidth = global.windowWidth()
-      console.log(this.windowWidth)
-    }
+    }, false)
   },
   methods: {
+    // h5语言切换
+    handleSwichH5Language (e) {
+      this.languageType = e
+    },
+
+    // 改变跟字体
+    handleParentFontSize(){
+      console.log('变化中')
+      let bodyWidth = document.body.clientWidth
+      this.windowWidth = bodyWidth > 768 ? 'bigWindow' : bodyWidth <= 768 && bodyWidth > 320 ? 'middleWindow' : 'smallWindow'
+      let drawingWidth = bodyWidth > 768 ? 1920 : bodyWidth <= 768 && bodyWidth > 320 ? 768 : 320
+      document.getElementsByTagName('html')[0].style.fontSize = bodyWidth * 100 / drawingWidth + 'px'
+      
+    },
     // 跳转首页
     handleGoIndex () {
       this.$router.push({path:'Index'})
@@ -1292,6 +1308,9 @@ export default {
       line-height: 0.33rem;
       margin: 0.12rem 0 0.15rem;
     }
+    .height-auto.disciption-one{
+      height: auto;
+    }
     .disciption-two,
     .disciption-three {
       width: 2.71rem;
@@ -1345,6 +1364,9 @@ export default {
         .top {
           margin-bottom: 0.3rem;
         }
+      }
+      .height-auto.three-line__box{
+        height: auto;
       }
       .btn {
         display: inline-block;
@@ -1513,6 +1535,9 @@ export default {
           font-weight: 400;
           line-height: 0.28rem;
           // color: red;
+        }
+        .height-auto{
+          height: auto;
         }
         span {
           width: 5.29rem;
