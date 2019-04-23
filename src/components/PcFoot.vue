@@ -5,11 +5,15 @@
     <div class="pc-foot">
       <div class="left">
         <div class="top">
-          首页
-          <span>|</span>关于我们
-          <span>|</span> 店铺
-          <span>|</span> 品牌合作
-          <span>|</span> 联系
+          <span @click="handleGoOtherPage('Index')">首页</span>
+          <span>|</span>
+          <span @click="handleGoOtherPage('about')">关于我们</span>
+          <span>|</span> 
+          <span @click="handleGoOtherPage('store')">店铺</span>
+          <span>|</span> 
+          <span @click="handleGoOtherPage('brand')">品牌合作</span> 
+          <span>|</span>
+          <span @click="handleGoOtherPage('call_me')">联系</span>
         </div>
         <div class="bottom">COPYRIGHT 2019 SOLOPICK 广州米选科技所有 粤ICP备18068342号-1</div>
       </div>
@@ -49,6 +53,11 @@ export default {
     window.addEventListener(resizeEvt, ()=>{
       this.windowWidth = global.windowWidth()
     }, false)
+  },
+  methods: {
+    handleGoOtherPage (e) {
+      this.$router.push({path:e})
+    }
   }
 }
 </script>
@@ -69,6 +78,7 @@ export default {
       line-height: 0.22rem;
       .top {
         margin-bottom: 0.2rem;
+        cursor: pointer;
       }
     }
     .right {
@@ -157,6 +167,7 @@ export default {
         font-weight:400;
         color:rgba(181,188,199,1);
         line-height:0.20rem;
+        cursor: pointer;
       }
       .bottom{
         width:2.69rem;

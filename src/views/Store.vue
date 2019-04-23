@@ -40,7 +40,7 @@
             <div
               class="discription-text"
             >SOLOPICK生活馆是一个以“优质国货”为原则的生活美学专门店，专注精选生活家居和创新生活家电，涵盖智能家居、家用生活、数码配件等，SKU多达7000余种。</div>
-            <div class="call-me__button">
+            <div class="call-me__button" @click="handleGoOtherPage('about')">
               <span>关于我们</span>
             </div>
           </div>
@@ -118,7 +118,7 @@
             <div
               class="discription-text"
             >SOLOPICK Life House is a speciality store of life aesthetics based on the principle of quality made-in-China products. It focuses on the selection of household products and innovative home appliances, covering smart home, household life, digital accessories, etc., with more than 7,000 SKUs.</div>
-            <div class="call-me__button">
+            <div class="call-me__button" @click="handleGoOtherPage('about')">
               <span>about us</span>
             </div>
           </div>
@@ -358,6 +358,7 @@ export default {
         font-weight: 600;
         color: rgba(255, 255, 255, 1);
         line-height: 25px;
+        cursor: pointer;
         span {
           margin-right: 0.1rem;
         }
@@ -468,6 +469,7 @@ export default {
         font-weight: 600;
         color: rgba(255, 255, 255, 1);
         line-height: 25px;
+        cursor: pointer;
         span {
           margin-right: 0.1rem;
         }
@@ -638,6 +640,7 @@ export default {
         font-weight: 600;
         color: rgba(255, 255, 255, 1);
         line-height: 25px;
+        cursor: pointer;
         span {
           margin-right: 0.1rem;
         }

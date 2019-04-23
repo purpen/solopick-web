@@ -39,7 +39,7 @@
               <span>新</span>国货出海第一渠道
             </div>
             <div class="discription-text">我们输送中国制造业优质品牌到海外市场，致力于输送中国制造业优质品牌到海外市场，真正让“中国制造”落于实地。</div>
-            <div class="call-me__button">
+            <div class="call-me__button" @click="handleGoOtherPage('about')">
               <span>关于我们</span>
             </div>
           </div>
@@ -94,7 +94,7 @@
             <div class="bottom-box">
               <p>SOLOPICK与国内众多头部平台、品牌和制造商展开合作，以品质生活和美学生活为主题，甄选智能家居、家用生活、数码配件等品类的精选产品。</p>
             </div>
-            <div class="join-function__btn">合作流程</div>
+            <div class="join-function__btn" @click="handleGoOtherPage('call_me')">合作流程</div>
             <div class="brad-icon__box">
               <img
                 :src="'/static/img/'+item"
@@ -185,7 +185,7 @@
               The First Channel for New China-made Goods to Go Overseas / Go Global with Us
             </div>
             <div class="discription-text">We are committed to delivering high-quality products, Chinese manufacturing industry to overseas markets so as to truly let "Made in China" enter the lives of ordinary people.</div>
-            <div class="call-me__button">
+            <div class="call-me__button" @click="handleGoOtherPage('about')">
               <span>about us</span>
             </div>
           </div>
@@ -531,6 +531,7 @@ export default {
         font-weight: 600;
         color: rgba(255, 255, 255, 1);
         line-height: 25px;
+        cursor: pointer;
         span {
           margin-right: 0.1rem;
         }
@@ -712,6 +713,7 @@ export default {
         color: rgba(32, 96, 159, 1);
         line-height: 0.25rem;
         margin: 0.37rem 0 0.52rem;
+        cursor: pointer;
       }
       .brad-icon__box {
         width: 100%;
@@ -1083,6 +1085,7 @@ export default {
         color: rgba(32, 96, 159, 1);
         line-height: 0.25rem;
         margin: 0.37rem 0 0.52rem;
+        cursor: pointer;
       }
       .brad-icon__box {
         padding: 0 0.5rem 0.4rem 0.5rem;
@@ -1472,6 +1475,7 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
+        cursor: pointer;
         .join-brand__icon {
           width: 1.2rem;
           height: 0.64rem;

@@ -14,14 +14,14 @@
           <img class="icon" src="/static/img/icon-coop-brand.png" alt>
           <div class="title">品牌入驻</div>
           <div class="discription">我们期盼将高品质、高颜值的产品推出海外市场，为您的品牌抢占新兴市场的下一个拐点。</div>
-          <div class="call-me">联系我们</div>
+          <div class="call-me" @click="handleGootherPage()">联系我们</div>
         </div>
 
         <div class="public-join__box--item margin-left--30px">
           <img class="icon" src="/static/img/icon-coop-store.png" alt>
           <div class="title">店铺加盟</div>
           <div class="discription">商场、SHOPPING MALL、商业街等人流量相对集中的地段。</div>
-          <div class="call-me">联系我们</div>
+          <div class="call-me" @click="handleGootherPage()">联系我们</div>
         </div>
       </div>
     </div>
@@ -41,14 +41,14 @@
           <img class="icon" src="/static/img/icon-coop-brand.png" alt>
           <div class="title">Brand Cooperation</div>
           <div class="discription">SOLOPICK looks forward to launching high-quality and high-value products into overseas markets and seizing the next turning point in emerging markets for your brand.</div>
-          <div class="call-me">CONTACT US</div>
+          <div class="call-me" @click="handleGootherPage()">CONTACT US</div>
         </div>
 
         <div class="public-join__box--item margin-left--30px">
           <img class="icon" src="/static/img/icon-coop-store.png" alt>
           <div class="title">Joining Stores</div>
           <div class="discription">Shopping malls, commercial streets, pedestrian precincts, subway proximity, near schools and other areas where traffic is relatively concentrated.</div>
-          <div class="call-me">CONTACT US</div>
+          <div class="call-me" @click="handleGootherPage()">CONTACT US</div>
         </div>
       </div>
     </div>
@@ -72,6 +72,12 @@ export default {
     window.addEventListener(resizeEvt, ()=>{
       this.windowWidth = global.windowWidth()
     }, false)
+  },
+  methods: {
+    // 
+    handleGootherPage () {
+      this.$router.push({path:'call_me'})
+    }
   }
 }
 </script>
@@ -151,6 +157,7 @@ export default {
     flex-direction: column;
     align-items: center;
     .public-join__box--item {
+      // cursor: pointer;
     }
   }
   .margin-left--30px {
@@ -200,6 +207,7 @@ export default {
       background: rgba(255, 255, 255, 1);
       box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.14);
       border-radius: 5px;
+      // cursor: pointer;
       .discription {
         width: 2.7rem;
         font-size: 0.16rem;
