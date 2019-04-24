@@ -55,7 +55,7 @@
       </div-->
 
       <div class="brand-icon__list">
-        <img :src="'/static/img/'+item" alt v-for="(item, index) in brandList" :key="index">
+        <img class="brand-icon__list--item" :src="'/static/img/'+item" alt v-for="(item, index) in brandList" :key="index">
         <!-- <div class="loading-more">加载更多…</div> -->
       </div>
 
@@ -134,7 +134,7 @@
       </div-->
 
       <div class="brand-icon__list">
-        <img :src="'/static/img/'+item" alt v-for="(item, index) in brandList" :key="index">
+        <img class="brand-icon__list--item" :src="'/static/img/'+item" alt v-for="(item, index) in brandList" :key="index">
         <!-- <div class="loading-more">加载更多…</div> -->
       </div>
 
@@ -194,7 +194,50 @@ export default {
         }
       ],
 
-      brandList: ['logo-s_0038_nine-bot.png', 'logo-s_0004_chunmi.png', 'logo-s_0007_zmi.png', 'logo-s_0023_swdk.png', 'logo-s_0005_smartmi.png', 'logo-s_0021_dreame.png'],
+      brandList: [
+        'logo-s_0038_nine-bot.png',
+        'logo-s_0004_chunmi.png',
+        'logo-s_0007_zmi.png',
+        'logo-s_0023_swdk.png',
+        'logo-s_0005_smartmi.png',
+        'logo-s_0021_dreame.png',
+        'logo-s_0007_soocas.png',
+        'logo-s_0006_stone.png',
+        'logo-s_0001_townew.png',
+        'logo-s_0000_qcooker.png',
+        'logo-s_0039_showbay.png',
+        'logo-s_0013_90.png',
+        'logo-s_0014_jordanjudy.png',
+        'logo-s_0018_lefan.png',
+        'logo-s_0034_autobot.png',
+        'logo-s_0036_lkk.png',
+        'logo-s_0015_1more.png',
+        'logo-s_0012_8h.png',
+        'logo-s_0001_xinxiang.png',
+        'logo-s_0032_loffee.png',
+        'logo-s_0035_orashark.png',
+        'logo-s_0002_deerma.png',
+        'logo-s_0029_canban.png',
+        'logo-s_0028_l-mix.png',
+        'logo-s_0027_poputar.png',
+        'logo-s_0026_yunmai.png',
+        'logo-s_0029_rock.png',
+        'logo-s_0006_yeelight.png',
+        'logo-s_0039_KKF.png',
+        'logo-s_0026_fascinate.png',
+        'logo-s_0025_ireader.png',
+        'logo-s_0024_mushu.png',
+        'logo-s_0023_realbrella.png',
+        'logo-s_0037_lena.png',
+        'logo-s_0016_iflytek.png',
+        'logo-s_0020_gimi.png',
+        'logo-s_0015_huanxiang.png',
+        'logo-s_0018_levn.png',
+        'logo-s_0017_dongfangmaitian.png',
+        'logo-s_0000_ruimi.png',
+        'logo-s_0037_sleep-tailor.png',
+        'logo-s_0034_fifish.png'
+        ],
       joinStoreList: [
         {
           top: '取得联系',
@@ -390,12 +433,16 @@ export default {
     }
   }
   .brand-icon__list {
-    padding: 0.55rem 4rem;
+    padding: 0.55rem 3.2rem;
     border: 1px solid rgba(227, 232, 234, 1);
     background: rgba(246, 248, 249, 1);
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
+    .brand-icon__list--item{
+      margin: 0.3rem 0.4rem;
+    }
     img {
       width: 1.2rem;
       height: 0.64rem;
