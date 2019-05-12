@@ -18,21 +18,17 @@
           </el-dropdown-menu>
         </el-dropdown>
         <div class="sp-navbar__nav">
-          <router-link class="nav-link" :to="{ path: '/about' }">
+          <router-link :class="['nav-link', activeNav == 'Index' ? 'active' : '']" :to="{ path: '/about' }">
             <span>{{ $t('navbar.about') }}</span>
-            <span class="ren-line"></span>
           </router-link>
-          <router-link class="nav-link" :to="{ path: '/about' }">
+          <router-link :class="['nav-link', activeNav == 'Store' ? 'active' : '']" :to="{ path: '/store' }">
             <span>{{ $t('navbar.store') }}</span>
-            <span class="ren-line"></span>
           </router-link>
-          <router-link class="nav-link" :to="{ path: '/about' }">
+          <router-link :class="['nav-link', activeNav == 'Brand' ? 'active' : '']" :to="{ path: '/brand' }">
             <span>{{ $t('navbar.brand') }}</span>
-            <span class="ren-line"></span>
           </router-link>
-          <router-link class="nav-link" :to="{ path: '/about' }">
+          <router-link :class="['nav-link', activeNav == 'CallMe' ? 'active' : '']" :to="{ path: '/call_me' }">
             <span>{{ $t('navbar.contact') }}</span>
-            <span class="ren-line"></span>
           </router-link>
         </div>
 
@@ -48,7 +44,8 @@
     name: 'TopNav',
     data () {
       return {
-        locale: 'English'
+        locale: 'English',
+        activeNav: ''
       }
     },
     methods: {
@@ -89,6 +86,9 @@
       }
 
       this.$i18n.locale = lang
+    },
+    activated () {
+      this.activeNav = this.$route.name // this.$route.path.split('/')[1]
     }
   }
 </script>
@@ -122,6 +122,19 @@
             line-height:24px;
             text-decoration: none;
             margin-left: 40px;
+            padding-bottom: 5px;
+            border-bottom: 4px solid transparent;
+
+            span {
+              height:4px;
+              background: transparent;
+              border-radius:2px;
+              width: 100%;
+            }
+
+            &.router-link-active {
+              border-bottom-color: rgba(255,0,0,1);
+            }
           }
         }
 
@@ -129,5 +142,4 @@
 
     }
   }
-
 </style>

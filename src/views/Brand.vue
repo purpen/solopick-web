@@ -1,301 +1,167 @@
 <template>
-  <div>
-    <div
-      v-if="languageType=='c'"
-      :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
-    >
-      <h5-tab v-if="windowWidth=='smallWindow'" @h5Language="handleSwichH5Language"></h5-tab>
-      <div class="pc-hand__container">
-        <!-- 头部导航 -->
-        <div class="navbar">
-          <img class="logo" src="/static/img/solopick-logo-l.png" @click="handleGoIndex()">
-          <div class="handle-pick">
-            <div class="top" @click="isShowLanguagePick=!isShowLanguagePick">
-              <span>{{languageType=='c'?'简体中文':'English'}}</span>
-              <img class="jian-tou" src="/static/img/arrow-down-break.png" alt>
-              <language
-                :isShowLanguagePick="isShowLanguagePick"
-                v-on:handleSwichLanguage="handleSwichLanguage"
-              ></language>
-            </div>
-            <div class="bottom">
-              <div
-                class="span"
-                v-for="(item,index) in category"
-                :key="index"
-                @click="handleGoOtherPage(item.id)"
-              >
-                <span>{{languageType=='c'?item.name:item.eName}}</span>
-                <p v-show="item.id == categoryActive" class="ren-line"></p>
-              </div>
-            </div>
+    <div class="sp-web-container">
+
+    <!--导航-->
+    <top-nav></top-nav>
+
+    <!--头部-->
+    <div class="sp-web-head">
+      <div class="sp-block-wrapper">
+        <!--首屏-->
+        <div class="sp-block sp-block--head">
+          <div class="title">
+            <span class="spot">{{ $t('brand.slogan.spot') }}</span>{{ $t('brand.slogan.title') }}
           </div>
-        </div>
-
-        <!-- 左边的文字 品牌合作-->
-        <div class="left-text">
-          <div class="title-text">
-            <span>品</span>牌合作
-          </div>
-          <div
-            class="discription-text"
-          >SOLOPICK与众多头部平台、品牌和制造商展开合作，以品质生活和美学生活为主题，甄选智能家居、家用生活、数码配件等品类的产品。</div>
+          <div class="description">{{ $t('brand.slogan.description') }}</div>
         </div>
       </div>
 
-      <!--div class="top-discription">
-      <p class="frend">合作伙伴</p>
-      <p class="xiaomi-youpin">小米有品海外授权</p>
-      <div class="xiao-mi__discription">
-        <img class="xiaomi-icon" src="/static/img/xiaomiyoupin-logo-l.png" alt>
-        <div
-          class="discription-box"
-        >小米有品是小米旗下精品生活电商平台，也是小米“新零售”战略的重要一环。依托小米生态链体系，延续小米的“爆品”模式，致力于将“小米式的性价比”延伸到更广泛的家居生活领域。</div>
-      </div>
-      </div-->
-
-      <div class="brand-icon__list">
-        <img class="brand-icon__list--item" :src="'/static/img/'+item" alt v-for="(item, index) in brandList" :key="index">
-        <!-- <div class="loading-more">加载更多…</div> -->
-      </div>
-
-      <div class="public-location-box">
-        <div class="top">
-          <p class="one-line">诚邀合作</p>
-          <p class="two-line">店铺加盟流程</p>
-        </div>
-        <div class="bottom">
-          <div class="bottom-item" v-for="(item,index) in joinStoreList" :key="index">
-            <div class="list-number">{{index+1}}</div>
-            <div class="right-text">
-              <p class="top-text">{{item.top}}</p>
-              <p class="bottom-text">{{item.bottom}}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <pc-foot-join :languageType="languageType"></pc-foot-join>
     </div>
 
-    <!-- 英文 -->
-    <div
-      v-else
-      :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
-    >
-      <h5-tab v-if="windowWidth=='smallWindow'" @h5Language="handleSwichH5Language"></h5-tab>
-      <div class="pc-hand__container">
-        <!-- 头部导航 -->
-        <div class="navbar">
-          <img class="logo" src="/static/img/solopick-logo-l.png" @click="handleGoIndex()">
-          <div class="handle-pick">
-            <div class="top" @click="isShowLanguagePick=!isShowLanguagePick">
-              <span>English</span>
-              <img class="jian-tou" src="/static/img/arrow-down-break.png" alt>
-              <language
-                :isShowLanguagePick="isShowLanguagePick"
-                v-on:handleSwichLanguage="handleSwichLanguage"
-              ></language>
-            </div>
-            <div class="bottom">
-              <div
-                class="span"
-                v-for="(item,index) in category"
-                :key="index"
-                @click="handleGoOtherPage(item.id)"
-              >
-                <span>{{languageType=='c'?item.name:item.eName}}</span>
-                <p v-show="item.id == categoryActive" class="ren-line"></p>
-              </div>
+    <!--加盟流程-->
+    <div class="process">
+      <div class="sp-block-wrapper">
+        <div class="sub-title">{{ $t('store.process.sub_title') }}</div>
+        <div class="title">{{ $t('store.process.title') }}</div>
+
+        <div class="sp-steps-wrapper">
+          <div class="step">
+            <div class="step__icon">1</div>
+            <div class="step__content">
+              <div class="title">{{ $t('store.process.step1.title') }}</div>
+              <div class="desc">{{ $t('store.process.step1.desc') }}</div>
             </div>
           </div>
-        </div>
-
-        <!-- 左边的文字 品牌合作-->
-        <div class="left-text">
-          <div class="title-text">
-            rand Cooperation
+          <div class="step">
+            <div class="step__icon">2</div>
+            <div class="step__content">
+              <div class="title">{{ $t('store.process.step2.title') }}</div>
+              <div class="desc">{{ $t('store.process.step2.desc') }}</div>
+            </div>
           </div>
-          <div
-            class="discription-text"
-          >SOLOPICK cooperates with many top platforms, brands and manufacturers in China. With the theme of quality life and aesthetic life, select the competitive products of smart home, household life, digital accessories and other categories.</div>
-        </div>
-      </div>
-
-      <!--div class="top-discription">
-      <p class="frend">合作伙伴</p>
-      <p class="xiaomi-youpin">小米有品海外授权</p>
-      <div class="xiao-mi__discription">
-        <img class="xiaomi-icon" src="/static/img/xiaomiyoupin-logo-l.png" alt>
-        <div
-          class="discription-box"
-        >小米有品是小米旗下精品生活电商平台，也是小米“新零售”战略的重要一环。依托小米生态链体系，延续小米的“爆品”模式，致力于将“小米式的性价比”延伸到更广泛的家居生活领域。</div>
-      </div>
-      </div-->
-
-      <div class="brand-icon__list">
-        <img class="brand-icon__list--item" :src="'/static/img/'+item" alt v-for="(item, index) in brandList" :key="index">
-        <!-- <div class="loading-more">加载更多…</div> -->
-      </div>
-
-      <div class="public-location-box">
-        <div class="top">
-          <p class="one-line">SINCERELY INVITE COOPERATE</p>
-          <p class="two-line">The Procedure of Brand Cooperation</p>
-        </div>
-        <div class="bottom">
-          <div class="bottom-item" v-for="(item,index) in joinStoreList" :key="index">
-            <div class="list-number">{{index+1}}</div>
-            <div class="right-text">
-              <p class="top-text">{{item.etop}}</p>
-              <p class="bottom-text">{{item.ebottom}}</p>
+          <div class="step">
+            <div class="step__icon">3</div>
+            <div class="step__content">
+              <div class="title">{{ $t('store.process.step3.title') }}</div>
+              <div class="desc">{{ $t('store.process.step3.desc') }}</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__icon">4</div>
+            <div class="step__content">
+              <div class="title">{{ $t('store.process.step4.title') }}</div>
+              <div class="desc">{{ $t('store.process.step4.desc') }}</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__icon">5</div>
+            <div class="step__content">
+              <div class="title">{{ $t('store.process.step5.title') }}</div>
+              <div class="desc">{{ $t('store.process.step5.desc') }}</div>
             </div>
           </div>
         </div>
       </div>
-
-      <pc-foot-join :languageType="languageType"></pc-foot-join>
     </div>
+
+    <!--旗舰店地址-->
+    <div class="address">
+      <div class="sp-block-wrapper">
+        <div class="title">{{ $t('store.address.title') }}</div>
+        <div class="desc">{{ $t('store.address.desc') }}</div>
+        <img class="map" src="static/img/store-location.jpg" alt="solopick address">
+      </div>
+    </div>
+
+    <!--联系我们-->
+    <pc-foot-join></pc-foot-join>
+
   </div>
 </template>
 
 <script>
-import * as global from '@/global/index'
-export default {
-  name: 'Brand',
-  data () {
-    return {
-      windowWidth: '', // 屏幕尺寸
+  export default {
+    name: 'Brand',
+    data () {
+      return {
+        brandList: [
+          'logo-s_0038_nine-bot.png',
+          'logo-s_0004_chunmi.png',
+          'logo-s_0007_zmi.png',
+          'logo-s_0023_swdk.png',
+          'logo-s_0005_smartmi.png',
+          'logo-s_0021_dreame.png',
+          'logo-s_0007_soocas.png',
+          'logo-s_0006_stone.png',
+          'logo-s_0001_townew.png',
+          'logo-s_0000_qcooker.png',
+          'logo-s_0039_showbay.png',
+          'logo-s_0013_90.png',
+          'logo-s_0014_jordanjudy.png',
+          'logo-s_0018_lefan.png',
+          'logo-s_0034_autobot.png',
+          'logo-s_0036_lkk.png',
+          'logo-s_0015_1more.png',
+          'logo-s_0012_8h.png',
+          'logo-s_0001_xinxiang.png',
+          'logo-s_0032_loffee.png',
+          'logo-s_0035_orashark.png',
+          'logo-s_0002_deerma.png',
+          'logo-s_0029_canban.png',
+          'logo-s_0028_l-mix.png',
+          'logo-s_0027_poputar.png',
+          'logo-s_0026_yunmai.png',
+          'logo-s_0029_rock.png',
+          'logo-s_0006_yeelight.png',
+          'logo-s_0039_KKF.png',
+          'logo-s_0026_fascinate.png',
+          'logo-s_0025_ireader.png',
+          'logo-s_0024_mushu.png',
+          'logo-s_0023_realbrella.png',
+          'logo-s_0037_lena.png',
+          'logo-s_0016_iflytek.png',
+          'logo-s_0020_gimi.png',
+          'logo-s_0015_huanxiang.png',
+          'logo-s_0018_levn.png',
+          'logo-s_0017_dongfangmaitian.png',
+          'logo-s_0000_ruimi.png',
+          'logo-s_0037_sleep-tailor.png',
+          'logo-s_0034_fifish.png'
+          ],
+        joinStoreList: [
+          {
+            top: '取得联系',
+            bottom: '品牌商请通过020-##########，与我们取得联系，确认合作意向后需寄送产品样品',
+            etop: 'Contact SOLOPICK',
+            ebottom: 'Brands and Manufacturers please contact us through 020-xxxx or email xxxxxxx@solopick.com.'
+          },
+          {
+            top: '产品评测',
+            bottom: 'SOLOPICK将对产品样品进行市场调研分析和产品评测，产品通过测试和评测后双方签订合作协议',
+            etop: 'Product evaluation',
+            ebottom: 'SOLOPICK will conduct market research analysis and product evaluation on product samples. Only after the products pass the test and evaluation will the two parties sign a cooperation agreement.'
+          },
+          {
+            top: '产品采买',
+            bottom: '根据市场调研分析和产品评测报告过，SOLOPICK将产品添加至产品库，并根据市场需求进行采购',
+            etop: 'Product procurement',
+            ebottom: 'SOLOPICK will add products to the product library and purchases according to market demand, based on the market research analysis and product evaluation report.'
+          }
+        ]
+      }
+    },
+    methods: {
 
-      languageType: 'c', // 语言类型
-      isShowLanguagePick: false, // 是否显示语言选择框
-
-      categoryActive: 'index',
-      category: [
-        {
-          id: 'about',
-          name: '关于我们',
-          eName: 'ABOUT US'
-        },
-        {
-          id: 'store',
-          name: '店铺',
-          eName: 'STORE'
-        },
-        {
-          id: 'brand',
-          name: '品牌合作',
-          eName: 'BRAND'
-        },
-        {
-          id: 'call_me',
-          name: '联系',
-          eName: 'CONTACT'
-        }
-      ],
-
-      brandList: [
-        'logo-s_0038_nine-bot.png',
-        'logo-s_0004_chunmi.png',
-        'logo-s_0007_zmi.png',
-        'logo-s_0023_swdk.png',
-        'logo-s_0005_smartmi.png',
-        'logo-s_0021_dreame.png',
-        'logo-s_0007_soocas.png',
-        'logo-s_0006_stone.png',
-        'logo-s_0001_townew.png',
-        'logo-s_0000_qcooker.png',
-        'logo-s_0039_showbay.png',
-        'logo-s_0013_90.png',
-        'logo-s_0014_jordanjudy.png',
-        'logo-s_0018_lefan.png',
-        'logo-s_0034_autobot.png',
-        'logo-s_0036_lkk.png',
-        'logo-s_0015_1more.png',
-        'logo-s_0012_8h.png',
-        'logo-s_0001_xinxiang.png',
-        'logo-s_0032_loffee.png',
-        'logo-s_0035_orashark.png',
-        'logo-s_0002_deerma.png',
-        'logo-s_0029_canban.png',
-        'logo-s_0028_l-mix.png',
-        'logo-s_0027_poputar.png',
-        'logo-s_0026_yunmai.png',
-        'logo-s_0029_rock.png',
-        'logo-s_0006_yeelight.png',
-        'logo-s_0039_KKF.png',
-        'logo-s_0026_fascinate.png',
-        'logo-s_0025_ireader.png',
-        'logo-s_0024_mushu.png',
-        'logo-s_0023_realbrella.png',
-        'logo-s_0037_lena.png',
-        'logo-s_0016_iflytek.png',
-        'logo-s_0020_gimi.png',
-        'logo-s_0015_huanxiang.png',
-        'logo-s_0018_levn.png',
-        'logo-s_0017_dongfangmaitian.png',
-        'logo-s_0000_ruimi.png',
-        'logo-s_0037_sleep-tailor.png',
-        'logo-s_0034_fifish.png'
-        ],
-      joinStoreList: [
-        {
-          top: '取得联系',
-          bottom: '品牌商请通过020-##########，与我们取得联系，确认合作意向后需寄送产品样品',
-          etop: 'Contact SOLOPICK',
-          ebottom: 'Brands and Manufacturers please contact us through 020-xxxx or email xxxxxxx@solopick.com.'
-        },
-        {
-          top: '产品评测',
-          bottom: 'SOLOPICK将对产品样品进行市场调研分析和产品评测，产品通过测试和评测后双方签订合作协议',
-          etop: 'Product evaluation',
-          ebottom: 'SOLOPICK will conduct market research analysis and product evaluation on product samples. Only after the products pass the test and evaluation will the two parties sign a cooperation agreement.'
-        },
-        {
-          top: '产品采买',
-          bottom: '根据市场调研分析和产品评测报告过，SOLOPICK将产品添加至产品库，并根据市场需求进行采购',
-          etop: 'Product procurement',
-          ebottom: 'SOLOPICK will add products to the product library and purchases according to market demand, based on the market research analysis and product evaluation report.'
-        }
-      ]
     }
-  },
-  mounted () {
-    // 计算样式
-    this.windowWidth = global.windowWidth()
-    console.log(this.windowWidth)
-    let resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
-    window.addEventListener(resizeEvt, ()=>{
-      this.windowWidth = global.windowWidth()
-    }, false)
-  },
-  methods: {
-    // h5语言切换
-    handleSwichH5Language (e) {
-      this.languageType = e
-    },
-    // 跳转首页
-    handleGoIndex () {
-      this.$router.push({path:'Index'})
-    },
-    // 跳转网页
-    handleGoOtherPage (e) {
-      this.categoryActive = e
-      this.$router.push({path: e})
-    },
-    // 语言切换
-    handleSwichLanguage (e) {
-      this.languageType = e
-    }
-  },
-  activated () {
-    this.categoryActive = window.location.hash.split('/')[1]
-    this.languageType = this.$store.state.languageType
   }
-}
 </script>
 
 <style lang="scss" scoped>
+  .sp-web-head {
+    background: url("/static/img/4-header-bg-imgs.jpg") no-repeat;
+    padding-bottom: 150px;
+  }
+
 @import "@/assets/css/public.scss";
 .big-window {
   .pc-hand__container {

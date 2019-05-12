@@ -67,9 +67,294 @@
         .sp-block {
           .title {
             font-size: 32px;
+            line-height: 42px;
           }
         }
       }
     }
   }
+
+  .sp-web-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sp-web-head {
+    background-size: auto 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-top: 193px;
+  }
+
+  .platform {
+    background: rgba(246,248,249,1);
+    padding-top: 90px;
+
+    .sp-block-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .platform-cards {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 80px;
+
+      .card {
+        width: 30%;
+        text-align: center;
+        font-weight: 400;
+
+        .image {
+          width: 120px;
+          height: 120px;
+          margin-bottom: 25px;
+        }
+
+        .title {
+          font-size: 24px;
+          color: rgba(44, 46, 48, 1);
+          line-height: 33px;
+          margin-bottom: 20px;
+        }
+
+        .description {
+          font-size: 16px;
+          color: rgba(126, 128, 133, 1);
+          line-height: 28px;
+        }
+
+      }
+    }
+  }
+
+  .sp-block-wrapper {
+    display: flex;
+
+    .sp-block {
+      flex: 1;
+
+      .title {
+        font-size:48px;
+        font-weight:400;
+        color:rgba(255,255,255,1);
+        line-height:67px;
+        margin-bottom: 31px;
+        padding-bottom: 5px;
+
+        .spot {
+          border-bottom: 4px solid rgba(255,0,0,1);
+          border-radius:2px;
+        }
+      }
+
+      .description {
+        font-size:18px;
+        font-weight:400;
+        color:rgba(255,255,255,1);
+        line-height:34px;
+        margin-bottom: 40px;
+        width: 450px;
+
+        .spot {
+          border-bottom: 3px solid rgba(255,0,0,1);
+          border-radius: 2px;
+        }
+      }
+
+      .sp-btn {
+        height:52px;
+        line-height: 52px;
+        border-radius:38px;
+        border:2px solid rgba(255,255,255,1);
+        color: rgba(255,255,255,1);
+        padding: 0 28px;
+        font-size:18px;
+        font-weight:600;
+        text-decoration: none;
+        margin-bottom: 152px;
+        display: inline-block;
+      }
+
+    }
+
+    .sp-block__image {
+      flex: 0 0 auto;
+
+      .white-products {
+        width: 650px;
+        height: 570px;
+      }
+
+      .best-time {
+        width: 540px;
+        height: 380px;
+        margin-top: 68px;
+        margin-bottom: 108px;
+        border-radius: 5px;
+      }
+    }
+
+    .sp-block--black {
+      color: rgba(126,128,133,1);
+      font-weight:400;
+
+      .sub-title {
+        font-size:14px;
+        line-height:20px;
+        margin-bottom: 10px;
+      }
+
+      .title {
+        font-size:34px;
+        color:rgba(44,46,48,1);
+        line-height:46px;
+        margin-bottom: 10px;
+      }
+
+      .description {
+        font-size:16px;
+        line-height:28px;
+        margin-bottom: 20px;
+        color: rgba(126,128,133,1);
+      }
+    }
+
+    .sp-block.chance {
+      margin-top: 40px;
+    }
+
+    .sp-block__head {
+      text-align: center;
+      font-weight: 400;
+      margin-bottom: 60px;
+
+      .sub-title {
+        font-size: 14px;
+        color: rgba(126, 128, 133, 1);
+        margin-bottom: 10px;
+      }
+
+      .title {
+        font-size: 34px;
+        color: rgba(44, 46, 48, 1);
+        line-height: 46px;
+        margin-bottom: 10px;
+      }
+
+      .desc {
+        font-size: 16px;
+        color: rgba(126, 128, 133, 1);
+        line-height: 28px;
+      }
+    }
+
+  }
+
+  .brands {
+    padding-top: 90px;
+    padding-bottom: 60px;
+
+    .sp-block-wrapper {
+      display: flex;
+      flex-direction: column;
+
+      .sp-block__head {
+        .desc {
+          width: 635px;
+          margin: 0 auto 40px;
+        }
+      }
+
+      .sp-btn {
+        width: 152px;
+        height: 52px;
+        border-radius:38px;
+        border: 2px solid rgba(32,96,159,1);
+        display: inline-block;
+        line-height: 52px;
+        font-size:18px;
+        font-weight:600;
+        color:rgba(32,96,159,1);
+      }
+    }
+
+    .brand-logos {
+      display: flex;
+      justify-content: space-between;
+
+      .logo {
+        width: 120px;
+        flex: 0 0 120px;
+      }
+    }
+
+  }
+
+  .collection {
+    .image {
+      width: 100%;
+    }
+  }
+
+  .cooperation {
+    padding-top: 84px;
+
+    .sp-block-wrapper {
+      display: flex;
+      flex-direction: column;
+
+      .arrow {
+        margin-bottom: 60px;
+      }
+    }
+
+    .coop-body {
+      display: flex;
+
+      .coop-rule__wrapper {
+        flex: 1;
+        display: flex;
+        margin-right: 200px;
+        flex-direction: row-reverse;
+
+        .sp-block {
+          width: 485px;
+
+          color: rgba(126,128,133,1);
+          font-weight:400;
+
+          .sub-title {
+            font-size:14px;
+            line-height:20px;
+            margin-bottom: 10px;
+          }
+
+          .title {
+            font-size:34px;
+            color:rgba(44,46,48,1);
+            line-height:46px;
+            margin-bottom: 10px;
+          }
+
+          .description {
+            font-size:16px;
+            line-height:28px;
+            margin-bottom: 20px;
+            color: rgba(126,128,133,1);
+          }
+        }
+      }
+
+      .coop-store {
+        flex: 0 0 auto;
+      }
+
+    }
+  }
+
 </style>
