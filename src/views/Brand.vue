@@ -18,58 +18,54 @@
 
     </div>
 
+    <!--合作品牌-->
+      <div class="brands">
+        <div class="sp-block-wrapper">
+          <div class="sp-block__head">
+            <div class="sub-title">{{ $t('brand.brands.sub_title') }}</div>
+            <div class="title">{{ $t('brand.brands.title') }}</div>
+          </div>
+          <div class="sp-block__body">
+            <div class="brand-logos">
+              <img
+                class="logo"
+                :src="'/static/img/'+item"
+                v-for="(item, index) in brandList"
+                :key="index">
+            </div>
+          </div>
+        </div>
+      </div>
+
     <!--加盟流程-->
     <div class="process">
       <div class="sp-block-wrapper">
-        <div class="sub-title">{{ $t('store.process.sub_title') }}</div>
-        <div class="title">{{ $t('store.process.title') }}</div>
+        <div class="sub-title">{{ $t('brand.process.sub_title') }}</div>
+        <div class="title">{{ $t('brand.process.title') }}</div>
 
         <div class="sp-steps-wrapper">
           <div class="step">
             <div class="step__icon">1</div>
             <div class="step__content">
-              <div class="title">{{ $t('store.process.step1.title') }}</div>
-              <div class="desc">{{ $t('store.process.step1.desc') }}</div>
+              <div class="title">{{ $t('brand.process.step1.title') }}</div>
+              <div class="desc">{{ $t('brand.process.step1.desc') }}</div>
             </div>
           </div>
           <div class="step">
             <div class="step__icon">2</div>
             <div class="step__content">
-              <div class="title">{{ $t('store.process.step2.title') }}</div>
-              <div class="desc">{{ $t('store.process.step2.desc') }}</div>
+              <div class="title">{{ $t('brand.process.step2.title') }}</div>
+              <div class="desc">{{ $t('brand.process.step2.desc') }}</div>
             </div>
           </div>
           <div class="step">
             <div class="step__icon">3</div>
             <div class="step__content">
-              <div class="title">{{ $t('store.process.step3.title') }}</div>
-              <div class="desc">{{ $t('store.process.step3.desc') }}</div>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step__icon">4</div>
-            <div class="step__content">
-              <div class="title">{{ $t('store.process.step4.title') }}</div>
-              <div class="desc">{{ $t('store.process.step4.desc') }}</div>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step__icon">5</div>
-            <div class="step__content">
-              <div class="title">{{ $t('store.process.step5.title') }}</div>
-              <div class="desc">{{ $t('store.process.step5.desc') }}</div>
+              <div class="title">{{ $t('brand.process.step3.title') }}</div>
+              <div class="desc">{{ $t('brand.process.step3.desc') }}</div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!--旗舰店地址-->
-    <div class="address">
-      <div class="sp-block-wrapper">
-        <div class="title">{{ $t('store.address.title') }}</div>
-        <div class="desc">{{ $t('store.address.desc') }}</div>
-        <img class="map" src="static/img/store-location.jpg" alt="solopick address">
       </div>
     </div>
 
@@ -132,20 +128,20 @@
           {
             top: '取得联系',
             bottom: '品牌商请通过020-##########，与我们取得联系，确认合作意向后需寄送产品样品',
-            etop: 'Contact SOLOPICK',
-            ebottom: 'Brands and Manufacturers please contact us through 020-xxxx or email xxxxxxx@solopick.com.'
+            etop: '',
+            ebottom: ''
           },
           {
             top: '产品评测',
             bottom: 'SOLOPICK将对产品样品进行市场调研分析和产品评测，产品通过测试和评测后双方签订合作协议',
-            etop: 'Product evaluation',
-            ebottom: 'SOLOPICK will conduct market research analysis and product evaluation on product samples. Only after the products pass the test and evaluation will the two parties sign a cooperation agreement.'
+            etop: '',
+            ebottom: ''
           },
           {
             top: '产品采买',
             bottom: '根据市场调研分析和产品评测报告过，SOLOPICK将产品添加至产品库，并根据市场需求进行采购',
-            etop: 'Product procurement',
-            ebottom: 'SOLOPICK will add products to the product library and purchases according to market demand, based on the market research analysis and product evaluation report.'
+            etop: '',
+            ebottom: ''
           }
         ]
       }
@@ -160,6 +156,26 @@
   .sp-web-head {
     background: url("/static/img/4-header-bg-imgs.jpg") no-repeat;
     padding-bottom: 150px;
+  }
+
+  .brands {
+    background:rgba(246,248,249,1);
+
+    .brand-logos {
+      display: flex;
+      flex-flow: row wrap;
+
+      .logo {
+        width: 120px;
+        height: 64px;
+        margin-right: 80px;
+        margin-bottom: 50px;
+      }
+    }
+  }
+
+  .process {
+    margin-top: 40px;
   }
 
 @import "@/assets/css/public.scss";
