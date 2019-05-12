@@ -6,15 +6,12 @@
     </keep-alive>
 
     <!--底部-->
-    <div class="sp-web-foot">
-      <pc-foot></pc-foot>
-    </div>
+    <pc-foot></pc-foot>
 
   </div>
 </template>
 
 <script>
-  import * as global from '@/global/index'
 
   export default {
     name: 'Base',

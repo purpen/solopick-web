@@ -63,34 +63,896 @@ p {
   }
 }
 
-// Extra small devices (portrait phones, less than 576px)
-@media (max-width: 575.98px) {
-  body {
-    background-color:lightblue;
-  }
-}
-
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (max-width: 767.98px) {
+  .sp-navbar-wrapper {
+    .sp-navbar {
+      margin: 0 40px;
+    }
+
+    .sp-navbar__menu {
+      display: none;
+    }
+  }
+  .sp-block-wrapper {
+    margin: 0 40px;
+  }
+  .sp-web-container {
+    &.home {
+      .sp-web-head {
+        background-size: auto 100%;
+
+        .sp-block-wrapper {
+          display: block;
+
+          .sp-block {
+            .title {
+              font-size: 32px;
+            }
+            .description {
+              width: auto;
+            }
+
+            .sp-btn {
+              margin-bottom: 0;
+            }
+          }
+          .sp-block__image {
+            .white-products {
+              width: 325px;
+              height: 285px;
+              margin-top: 20px;
+            }
+          }
+
+        }
+
+      }
+
+      .overseas {
+        &.sp-block-wrapper {
+          display: block;
+        }
+      }
+
+      .chance {
+        &.sp-block {
+          .title {
+            font-size: 28px;
+          }
+          .description {
+            width: auto;
+          }
+        }
+      }
+
+      .sp-block__image {
+        .best-time {
+          width: 100%;
+          height: auto;
+          margin: 40px 0;
+        }
+      }
+
+      .platform {
+        .platform-cards {
+          display: flex;
+          flex-direction: column;
+
+          .card {
+            width: 100%;
+            margin-bottom: 40px;
+          }
+        }
+      }
+
+      .brands {
+        .sp-block__head {
+          .desc {
+            width: auto;
+          }
+        }
+
+        .brand-logos {
+          flex-flow: row wrap;
+        }
+
+      }
+
+      .cooperation {
+        .coop-body {
+          flex-direction: column;
+        }
+        .coop-rule__wrapper {
+          margin-right: 0px;
+          text-align: center;
+          padding: 0 50px 50px;
+
+          .sp-block {
+            width: auto;
+          }
+        }
+        .coop-store {
+          .right-photo {
+            width: 100%;
+          }
+        }
+
+      }
+
+      .coop-contact {
+        .coop-body {
+          flex-direction: column;
+          align-items: center;
+          padding-bottom: 50px;
+          margin-top: 0;
+
+          .card {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: auto;
+            border-radius: 0;
+
+            &:first-child {
+              margin-right: 0;
+              margin-top: 40px;
+            }
+          }
+        }
+      }
+
+    }
+
+
+    &.about {
+      .sp-web-head {
+        background-size: auto 100%;
+
+        .sp-block-wrapper {
+          display: block;
+
+          .sp-block {
+            .title {
+              font-size: 32px;
+            }
+            .description {
+              width: auto;
+            }
+          }
+        }
+      }
+
+      .origin {
+        &.sp-block-wrapper {
+          margin-top: 80px;
+          display: block;
+
+          .sp-block {
+            .description {
+              width: auto;
+            }
+          }
+        }
+        .sp-block__image {
+          .best-time {
+            width: 270px;
+            height: 168px;
+          }
+        }
+      }
+
+      .concept {
+        .concept-cards {
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 0;
+
+          .card {
+            width: 100%;
+            margin-bottom: 40px;
+          }
+        }
+      }
+
+      .coop-contact {
+        .coop-body {
+          flex-direction: column;
+          align-items: center;
+          padding-bottom: 50px;
+          margin-top: 0;
+
+          .card {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: auto;
+            border-radius: 0;
+
+            &:first-child {
+              margin-right: 0;
+              margin-top: 40px;
+            }
+          }
+        }
+      }
+    }
+
+
+    &.store {
+      .sp-web-head {
+        .sp-block-wrapper {
+          display: block;
+        }
+
+        .sp-block {
+          padding-right: 0px;
+
+          .title {
+            font-size: 32px;
+          }
+          .description {
+            width: auto;
+          }
+        }
+        .sp-block__image {
+          .white-products {
+            width: 270px;
+            height: 190px;
+            margin-top: 40px;
+          }
+        }
+      }
+
+      .process {
+        .sp-block-wrapper {
+          margin: 0;
+
+          .sub-title {
+            margin-left: 40px;
+          }
+          .title {
+            margin-left: 40px;
+          }
+        }
+        .sp-steps-wrapper {
+          padding: 20px 25px;
+          border-width: 0;
+          border-radius: 0;
+
+          .step {
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+
+            .step__icon {
+              margin-right: 0;
+            }
+            .step__content {
+              .desc {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      .address {
+        .sp-block-wrapper {
+          .map {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+
+      .coop-contact {
+        .coop-body {
+          flex-direction: column;
+          align-items: center;
+          padding-bottom: 50px;
+          margin-top: 0;
+
+          .card {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: auto;
+            border-radius: 0;
+
+            &:first-child {
+              margin-right: 0;
+              margin-top: 40px;
+            }
+          }
+        }
+      }
+    }
+
+
+    &.brand {
+      .sp-web-head {
+        .sp-block-wrapper {
+          display: block;
+        }
+
+        .sp-block {
+          padding-right: 0px;
+
+          .title {
+            font-size: 32px;
+          }
+          .description {
+            width: auto;
+          }
+        }
+      }
+
+      .brands {
+        .sp-block-wrapper {
+          margin: 0;
+
+          .brand-logos {
+            padding: 0 40px;
+
+            .logo {
+              margin-right: 0px;
+            }
+          }
+        }
+      }
+
+      .process {
+        .sp-block-wrapper {
+          margin: 0;
+
+          .sub-title {
+            margin-left: 40px;
+          }
+          .title {
+            margin-left: 40px;
+          }
+        }
+        .sp-steps-wrapper {
+          padding: 20px 25px;
+          border-width: 0;
+          border-radius: 0;
+
+          .step {
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+
+            .step__icon {
+              margin-right: 0;
+            }
+            .step__content {
+              .desc {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      .coop-contact {
+        .coop-body {
+          flex-direction: column;
+          align-items: center;
+          padding-bottom: 50px;
+          margin-top: 0;
+
+          .card {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: auto;
+            border-radius: 0;
+
+            &:first-child {
+              margin-right: 0;
+              margin-top: 40px;
+            }
+          }
+        }
+      }
+    }
+
+
+    &.contact {
+      .sp-web-head {
+        padding-bottom: 0;
+
+        .coop-contact {
+          .coop-body {
+            padding-bottom: 50px;
+            margin-top: 0;
+            flex-direction: column;
+            align-items: center;
+
+            .card {
+              margin-top: 20px;
+              margin-bottom: 20px;
+              width: auto;
+              border-radius: 0;
+
+              &:first-child {
+                margin-right: 0px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+  }
+
 
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991.98px) {
+  .sp-navbar-wrapper {
+    .sp-navbar {
+      margin: 0 50px;
+    }
+  }
+  .sp-block-wrapper {
+    margin: 0 50px;
+  }
+  .sp-web-container {
+    &.home {
+      .sp-web-head {
+        .sp-block {
+          .title {
+            font-size: 32px;
+          }
+          .description {
+            width: auto;
+          }
+        }
+        .sp-block__image {
+          .white-products {
+            width: 325px;
+            height: 285px;
+            margin-top: 70px;
+          }
+        }
+      }
 
+      .chance {
+        &.sp-block {
+          margin-right: 5%;
+
+          .description {
+            width: auto;
+          }
+        }
+      }
+
+      .sp-block__image {
+        .best-time {
+          width: 270px;
+          height: 190px;
+        }
+      }
+
+      .platform {
+        .platform-cards {
+          display: flex;
+          flex-direction: column;
+
+          .card {
+            width: 100%;
+            margin-bottom: 40px;
+          }
+        }
+      }
+
+      .brands {
+        .brand-logos {
+          flex-flow: row wrap;
+        }
+      }
+
+      .cooperation {
+        .coop-rule__wrapper {
+          margin-right: 40px;
+          .sp-block {
+            width: auto;
+            margin-left: 10%;
+          }
+        }
+        .coop-store {
+          .right-photo {
+            width: 380px;
+          }
+        }
+
+      }
+
+      .coop-contact {
+        .coop-body {
+          flex-direction: column;
+          align-items: center;
+          padding-bottom: 50px;
+
+          .card {
+            margin-bottom: 120px;
+
+            &:first-child {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+
+    }
+
+    &.about {
+      .origin {
+        &.sp-block-wrapper {
+          margin-top: 80px;
+
+          .sp-block {
+            .description {
+              width: auto;
+            }
+          }
+        }
+        .sp-block__image {
+          .best-time {
+            width: 336px;
+            height: 208px;
+          }
+        }
+      }
+
+      .concept {
+        .concept-cards {
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 0;
+
+          .card {
+            margin-bottom: 40px;
+          }
+        }
+      }
+
+      .coop-contact {
+        .coop-body {
+          flex-direction: column;
+          align-items: center;
+          padding-bottom: 50px;
+
+          .card {
+            margin-bottom: 120px;
+
+            &:first-child {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+
+
+    &.store {
+      .sp-web-head {
+        .sp-block-wrapper {
+          display: block;
+        }
+
+        .sp-block {
+          padding-right: 40px;
+
+          .title {
+            font-size: 32px;
+          }
+          .description {
+            width: auto;
+          }
+        }
+        .sp-block__image {
+          .white-products {
+            width: 670px;
+            height: 470px;
+            margin-top: 40px;
+          }
+        }
+      }
+
+      .coop-contact {
+        .coop-body {
+          padding: 0 50px;
+
+          .card {
+            margin-bottom: 120px;
+
+            &:first-child {
+              margin-right: 50px;
+            }
+          }
+        }
+      }
+    }
+
+
+    &.brand {
+      .sp-web-head {
+        .sp-block-wrapper {
+          display: block;
+        }
+
+        .sp-block {
+          padding-right: 40px;
+
+          .title {
+            font-size: 32px;
+          }
+          .description {
+            width: auto;
+          }
+        }
+        .sp-block__image {
+          .white-products {
+            width: 670px;
+            height: 470px;
+            margin-top: 40px;
+          }
+        }
+      }
+
+      .coop-contact {
+        .coop-body {
+          padding: 0 50px;
+
+          .card {
+            margin-bottom: 120px;
+
+            &:first-child {
+              margin-right: 50px;
+            }
+          }
+        }
+      }
+    }
+
+
+    &.contact {
+      .sp-web-head {
+        padding-bottom: 0;
+
+        .coop-contact {
+          .coop-body {
+            padding: 0 50px;
+            flex-direction: column;
+            align-items: center;
+
+            .card {
+              margin-bottom: 120px;
+
+              &:first-child {
+                margin-right: 0px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+  }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .sp-navbar-wrapper {
     .sp-navbar {
-      width: 1024px;
-      margin: 0 auto;
+      margin: 0 50px;
     }
   }
   .sp-block-wrapper {
-    width: 1024px;
-    margin: 0 auto;
+    margin: 0 50px;
+  }
+
+  .sp-web-container {
+    &.home {
+      .sp-web-head {
+        .sp-block {
+          .title {
+            font-size: 32px;
+          }
+          .description {
+            width: auto;
+          }
+        }
+        .sp-block__image {
+          .white-products {
+            width: 325px;
+            height: 285px;
+            margin-top: 70px;
+          }
+        }
+      }
+
+      .chance {
+        &.sp-block {
+          margin-right: 5%;
+
+          .description {
+            width: auto;
+          }
+        }
+      }
+
+      .cooperation {
+        .coop-rule__wrapper {
+          margin-right: 40px;
+          .sp-block {
+            width: auto;
+            margin-left: 10%;
+          }
+        }
+        .coop-store {
+          .right-photo {
+            width: 380px;
+          }
+        }
+      }
+
+      .coop-contact {
+        .coop-body {
+          padding: 0 50px;
+
+          .card {
+            width: 40%;
+            margin-bottom: 120px;
+
+            &:first-child {
+              margin-right: 40px;
+            }
+          }
+        }
+      }
+
+    }
+
+    &.about {
+      .origin {
+        &.sp-block-wrapper {
+          margin-top: 80px;
+
+          .sp-block {
+            .description {
+              width: auto;
+            }
+          }
+        }
+        .sp-block__image {
+          .best-time {
+            width: 467px;
+            height: 289px;
+          }
+        }
+      }
+
+      .concept {
+        .concept-cards {
+          .card {
+            width: 25%;
+          }
+        }
+      }
+
+      .coop-contact {
+        .coop-body {
+          padding: 0 50px;
+
+          .card {
+            margin-bottom: 120px;
+
+            &:first-child {
+              margin-right: 50px;
+            }
+          }
+        }
+      }
+    }
+
+
+    &.store {
+      .sp-web-head {
+        .sp-block {
+          padding-right: 40px;
+
+          .title {
+            font-size: 32px;
+          }
+          .description {
+            width: auto;
+          }
+        }
+        .sp-block__image {
+          .white-products {
+            width: 460px;
+            height: 325px;
+            margin-top: 70px;
+          }
+        }
+      }
+
+      .coop-contact {
+        .coop-body {
+          padding: 0 50px;
+
+          .card {
+            margin-bottom: 120px;
+
+            &:first-child {
+              margin-right: 50px;
+            }
+          }
+        }
+      }
+    }
+
+
+    &.brand {
+      .sp-web-head {
+        .sp-block {
+          padding-right: 40px;
+
+          .title {
+            font-size: 32px;
+          }
+          .description {
+            width: auto;
+          }
+        }
+        .sp-block__image {
+          .white-products {
+            width: 460px;
+            height: 325px;
+            margin-top: 70px;
+          }
+        }
+      }
+
+      .coop-contact {
+        .coop-body {
+          padding: 0 50px;
+
+          .card {
+            margin-bottom: 120px;
+
+            &:first-child {
+              margin-right: 50px;
+            }
+          }
+        }
+      }
+    }
+
+    &.contact {
+      .sp-web-head {
+        padding-bottom: 0;
+
+        .coop-contact {
+          .coop-body {
+            padding: 0 50px;
+
+            .card {
+              margin-bottom: 120px;
+
+              &:first-child {
+                margin-right: 50px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+
   }
 }
 

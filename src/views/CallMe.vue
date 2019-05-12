@@ -1,5 +1,5 @@
 <template>
-  <div class="sp-web-container">
+  <div class="sp-web-container contact">
 
     <!--导航-->
     <top-nav></top-nav>

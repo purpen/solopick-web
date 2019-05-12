@@ -1,5 +1,5 @@
 <template>
-  <div class="sp-web-container">
+  <div class="sp-web-container home">
 
     <!--导航-->
     <top-nav></top-nav>
@@ -30,7 +30,7 @@
     </div>
 
     <!--新国货出海-->
-    <div class="sp-block-wrapper">
+    <div class="sp-block-wrapper overseas">
       <div class="sp-block sp-block--black chance">
         <div class="sub-title">{{ $t('home.chance.sub_title') }}</div>
         <div class="title">{{ $t('home.chance.title') }}</div>
