@@ -7,14 +7,14 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Master',
+      name: 'Base',
       redirect: 'Index',
-      component: resolve => require(['@/views/Master'], resolve),
+      component: resolve => require(['@/views/Base'], resolve),
       children: [
         {
           name: 'Index',
           path: '/index',
-          component: resolve => require(['@/views/Index'], resolve)
+          component: resolve => require(['@/views/Home'], resolve)
         },
         {
           name: 'About',

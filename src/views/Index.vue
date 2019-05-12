@@ -2,36 +2,12 @@
   <div>
     <div v-if="languageType=='c'">
       <!-- <pc-hand></pc-hand> -->
-      <div
-        :class="windowWidth=='bigWindow'?'big-window':windowWidth=='middleWindow'?'middle-window':'small--window'"
-      >
+      <div class="">
         <h5-tab v-if="windowWidth=='smallWindow'" @h5Language="handleSwichH5Language"></h5-tab>
         <div class="pc-hand__container">
+
           <!-- 头部导航 -->
-          <div class="navbar">
-            <img class="logo" src="/static/img/solopick-logo-l.png" @click="handleGoIndex()">
-            <div class="handle-pick">
-              <div class="top" @click="isShowLanguagePick=!isShowLanguagePick">
-                <span>简体中文</span>
-                <img class="jian-tou" src="/static/img/arrow-down-break.png" alt>
-                <language
-                  :isShowLanguagePick="isShowLanguagePick"
-                  v-on:handleSwichLanguage="handleSwichLanguage"
-                ></language>
-              </div>
-              <div class="bottom">
-                <div
-                  class="span"
-                  v-for="(item,index) in category"
-                  :key="index"
-                  @click="handleGoOtherPage(item.id)"
-                >
-                  <span>{{languageType=='c'?item.name:item.eName}}</span>
-                  <p v-show="item.id == categoryActive" class="ren-line"></p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <top-nav></top-nav>
 
           <!-- 左边的文字 首页-->
           <div class="left-text">
@@ -295,116 +271,121 @@
 </template>
 
 <script>
-import * as global from '@/global/index'
-export default {
-  name: 'Index',
-  data () {
-    return {
-      windowWidth: '', // 屏幕尺寸
+  import * as global from '@/global/index'
+  import TopNav from '@/components/TopNav'
 
-      languageType: 'c', // 语言类型
-      isShowLanguagePick: false, // 是否显示语言选择框
+  export default {
+    name: 'Index',
+    components: {
+      TopNav
+    },
+    data () {
+      return {
+        windowWidth: '', // 屏幕尺寸
 
-      categoryActive: 'index',
-      category: [
-        {
-          id: 'about',
-          name: '关于我们',
-          eName: 'ABOUT US'
-        },
-        {
-          id: 'store',
-          name: '店铺',
-          eName: 'STORE'
-        },
-        {
-          id: 'brand',
-          name: '品牌合作',
-          eName: 'BRAND'
-        },
-        {
-          id: 'call_me',
-          name: '联系',
-          eName: 'CONTACT'
-        }
-      ],
+        languageType: 'c', // 语言类型
+        isShowLanguagePick: false, // 是否显示语言选择框
 
-      // 大屏幕下
-      bigWindowPickMe: [
-        {
-          image: '/static/img/icon-why-us-1.png',
-          title: '洞察新兴市场消费诉求',
-          etitle: 'Keen insight into consumer demand in emerging markets',
-          name: 'SOLOPICK 专业市场选品团队，根据……的产品理念，从线下零售切入。',
-          ename: 'SOLOPICK professional product selection team will cut in from offline retail according to the concept of [Quality × Technology × Aesthetics  = Intelligent Life].'
-        },
-        {
-          image: '/static/img/icon-why-us-2.png',
-          title: '深耕海外头部渠道',
-          etitle: 'Deeply plough the first channel of overseas market',
-          name: '覆盖全球近120个主要国家和地区，整合上千家海外经销商资源，拥有丰富的线上线下资源。',
-          ename: 'It covers nearly 120 major countries and regions in the world, integrates thousands of overseas dealer resources, and has rich online and offline resources.'
-        },
-        {
-          image: '/static/img/icon-why-us-3.png',
-          title: '共同构建出海平台',
-          etitle: 'Jointly build a platform for going overseas',
-          name: '为优质中国品牌构建出海平台，连接全球消费者与中国制造。',
-          ename: 'We are committed to building a platform for high-quality Chinese brands  to go overseas, and connecting global consumers with Chinese manufacturing industry.'
-        }
-      ],
-      // 品牌商标
-      brandIcon: ['logo-s_0042_nine-bot.png', 'logo-s_0004_chunmi.png', 'logo-s_0007_zmi.png', 'logo-s_0027_swdk.png', 'logo-s_0005_smartmi.png', 'logo-s_0021_dreame.png'],
-      brandIconMiddle: ['logo-s_0042_nine-bot.png', 'logo-s_0004_chunmi.png', 'logo-s_0007_zmi.png', 'logo-s_0027_swdk.png']
-    }
-  },
-  created () {
-  },
+        categoryActive: 'index',
+        category: [
+          {
+            id: 'about',
+            name: '关于我们',
+            eName: 'ABOUT US'
+          },
+          {
+            id: 'store',
+            name: '店铺',
+            eName: 'STORE'
+          },
+          {
+            id: 'brand',
+            name: '品牌合作',
+            eName: 'BRAND'
+          },
+          {
+            id: 'call_me',
+            name: '联系',
+            eName: 'CONTACT'
+          }
+        ],
 
-  mounted () {
-    // 计算样式
-    this.windowWidth = global.windowWidth()
-    console.log(this.windowWidth)
+        // 大屏幕下
+        bigWindowPickMe: [
+          {
+            image: '/static/img/icon-why-us-1.png',
+            title: '洞察新兴市场消费诉求',
+            etitle: 'Keen insight into consumer demand in emerging markets',
+            name: 'SOLOPICK 专业市场选品团队，根据……的产品理念，从线下零售切入。',
+            ename: 'SOLOPICK professional product selection team will cut in from offline retail according to the concept of [Quality × Technology × Aesthetics  = Intelligent Life].'
+          },
+          {
+            image: '/static/img/icon-why-us-2.png',
+            title: '深耕海外头部渠道',
+            etitle: 'Deeply plough the first channel of overseas market',
+            name: '覆盖全球近120个主要国家和地区，整合上千家海外经销商资源，拥有丰富的线上线下资源。',
+            ename: 'It covers nearly 120 major countries and regions in the world, integrates thousands of overseas dealer resources, and has rich online and offline resources.'
+          },
+          {
+            image: '/static/img/icon-why-us-3.png',
+            title: '共同构建出海平台',
+            etitle: 'Jointly build a platform for going overseas',
+            name: '为优质中国品牌构建出海平台，连接全球消费者与中国制造。',
+            ename: 'We are committed to building a platform for high-quality Chinese brands  to go overseas, and connecting global consumers with Chinese manufacturing industry.'
+          }
+        ],
+        // 品牌商标
+        brandIcon: ['logo-s_0042_nine-bot.png', 'logo-s_0004_chunmi.png', 'logo-s_0007_zmi.png', 'logo-s_0027_swdk.png', 'logo-s_0005_smartmi.png', 'logo-s_0021_dreame.png'],
+        brandIconMiddle: ['logo-s_0042_nine-bot.png', 'logo-s_0004_chunmi.png', 'logo-s_0007_zmi.png', 'logo-s_0027_swdk.png']
+      }
+    },
+    created () {
+    },
 
-    let resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
-    window.addEventListener(resizeEvt, ()=>{
+    mounted () {
+      // 计算样式
       this.windowWidth = global.windowWidth()
-    }, false)
-  },
-  methods: {
-    // h5语言切换
-    handleSwichH5Language (e) {
-      this.languageType = e
-    },
+      console.log(this.windowWidth)
 
-    // 改变跟字体
-    handleParentFontSize(){
-      console.log('变化中')
-      let bodyWidth = document.body.clientWidth
-      this.windowWidth = bodyWidth > 768 ? 'bigWindow' : bodyWidth <= 768 && bodyWidth > 320 ? 'middleWindow' : 'smallWindow'
-      let drawingWidth = bodyWidth > 768 ? 1920 : bodyWidth <= 768 && bodyWidth > 320 ? 768 : 320
-      document.getElementsByTagName('html')[0].style.fontSize = bodyWidth * 100 / drawingWidth + 'px'
-      
+      let resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
+      window.addEventListener(resizeEvt, ()=>{
+        this.windowWidth = global.windowWidth()
+      }, false)
     },
-    // 跳转首页
-    handleGoIndex () {
-      this.$router.push({path:'Index'})
+    methods: {
+      // h5语言切换
+      handleSwichH5Language (e) {
+        this.languageType = e
+      },
+
+      // 改变跟字体
+      handleParentFontSize(){
+        console.log('变化中')
+        let bodyWidth = document.body.clientWidth
+        this.windowWidth = bodyWidth > 768 ? 'bigWindow' : bodyWidth <= 768 && bodyWidth > 320 ? 'middleWindow' : 'smallWindow'
+        let drawingWidth = bodyWidth > 768 ? 1920 : bodyWidth <= 768 && bodyWidth > 320 ? 768 : 320
+        document.getElementsByTagName('html')[0].style.fontSize = bodyWidth * 100 / drawingWidth + 'px'
+
+      },
+      // 跳转首页
+      handleGoIndex () {
+        this.$router.push({path:'Index'})
+      },
+      // 跳转网页
+      handleGoOtherPage (e) {
+        this.categoryActive = e
+        this.$router.push({path: e})
+      },
+      // 语言切换
+      handleSwichLanguage (e) {
+        this.languageType = e
+      }
     },
-    // 跳转网页
-    handleGoOtherPage (e) {
-      this.categoryActive = e
-      this.$router.push({path: e})
-    },
-    // 语言切换
-    handleSwichLanguage (e) {
-      this.languageType = e
+    activated () {
+      this.categoryActive = window.location.hash.split('/')[1]
+      this.languageType = this.$store.state.languageType
     }
-  },
-  activated () {
-    this.categoryActive = window.location.hash.split('/')[1]
-    this.languageType = this.$store.state.languageType
   }
-}
 </script>
 
 <style lang="scss" scoped>

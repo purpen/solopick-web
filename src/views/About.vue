@@ -157,7 +157,7 @@
 
 <script>
 import * as global from '@/global/index'
-import * as types from '../vuex/type.js'
+import * as types from '../vuex/types.js'
 export default {
   name: 'About',
   data () {
@@ -221,7 +221,7 @@ export default {
   mounted () {
     // 计算样式
     this.windowWidth = global.windowWidth()
-    
+
     let resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
     window.addEventListener(resizeEvt, ()=>{
       this.windowWidth = global.windowWidth()

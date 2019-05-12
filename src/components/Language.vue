@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import * as types from '../vuex/type.js'
+import * as types from '../vuex/types.js'
 export default {
   name: 'Language',
   props: ['isShowLanguagePick'],
@@ -58,4 +58,3 @@ export default {
   }
 
 </style>
-
