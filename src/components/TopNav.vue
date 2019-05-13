@@ -268,13 +268,17 @@
 
     .sp-navbar-head {
       background:rgba(10,35,61,1);
-      padding: 20px 25px;
+      padding: 15px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
 
       .sp-logo-link {
         flex: 0 0 auto;
+        .sp-logo {
+          width: 90px;
+          height: auto;
+        }
       }
 
       .sp-navbar__icon {

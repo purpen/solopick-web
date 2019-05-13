@@ -170,12 +170,20 @@
               }
             }
           }
-        }
-      }
 
-      .foot__locale {
-        text-align: center;
-        margin-top: 40px;
+          .copyright {
+            padding: 0 25px;
+          }
+        }
+
+        .foot__locale {
+          text-align: center;
+          margin-top: 20px;
+
+          .social {
+            margin-bottom: 20px;
+          }
+        }
       }
     }
   }

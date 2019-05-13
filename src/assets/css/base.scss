@@ -78,8 +78,15 @@ p {
     }
   }
   .sp-block-wrapper {
-    margin: 0 40px;
+    margin: 0 25px;
+
+    .sp-block__head {
+      .title {
+        font-size: 26px !important;
+      }
+    }
   }
+
   .sp-web-container {
     &.home {
       .sp-web-head {
@@ -282,7 +289,7 @@ p {
 
     &.store {
       .sp-web-head {
-        padding-bottom: 100px;
+        padding-bottom: 60px;
 
         .sp-block-wrapper {
           display: block;
@@ -292,7 +299,7 @@ p {
           padding-right: 0px;
 
           .title {
-            font-size: 32px;
+            font-size: 26px;
           }
           .description {
             width: auto;
@@ -312,10 +319,11 @@ p {
           margin: 0;
 
           .sub-title {
-            margin-left: 40px;
+            margin-left: 25px;
           }
           .title {
-            margin-left: 40px;
+            margin-left: 25px;
+            font-size: 26px;
           }
         }
         .sp-steps-wrapper {
@@ -344,13 +352,15 @@ p {
       }
 
       .address {
+        margin-top: 60px;
         .sp-block-wrapper {
           margin: 0;
           .title {
-            margin: 0 40px;
+            margin: 0 25px;
+            font-size: 26px;
           }
           .desc {
-            margin: 0 40px 20px;
+            margin: 0 25px 20px;
           }
           .map {
             width: 100%;
@@ -409,6 +419,7 @@ p {
 
             .logo {
               margin-right: 0px;
+              margin-left: 0px;
             }
           }
         }
@@ -419,10 +430,10 @@ p {
           margin: 0;
 
           .sub-title {
-            margin-left: 40px;
+            margin-left: 25px;
           }
           .title {
-            margin-left: 40px;
+            margin-left: 25px;
           }
         }
         .sp-steps-wrapper {
@@ -488,6 +499,8 @@ p {
             margin-bottom: 20px;
             width: auto;
             border-radius: 0;
+            padding-left: 25px;
+            padding-right: 25px;
 
             &:first-child {
               margin-right: 0px;
