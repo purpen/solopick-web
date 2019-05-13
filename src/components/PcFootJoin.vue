@@ -14,7 +14,7 @@
         <img class="icon" src="/static/img/icon-coop-brand.png" alt="solopick">
         <div class="title">{{ $t('home.coop_contact.brand.title') }}</div>
         <div class="description">{{ $t('home.coop_contact.brand.description') }}</div>
-        <router-link :to="{ path: '/about' }" class="call-me">
+        <router-link :to="{ path: '/call_me' }" class="call-me">
           <span>{{ $t('home.coop_contact.brand.btn_text') }}</span>
           <i class="el-icon-right"></i>
         </router-link>
@@ -23,7 +23,7 @@
         <img class="icon" src="/static/img/icon-coop-store.png" alt="solopick">
         <div class="title">{{ $t('home.coop_contact.store.title') }}</div>
         <div class="description">{{ $t('home.coop_contact.store.description') }}</div>
-        <router-link :to="{ path: '/about' }" class="call-me">
+        <router-link :to="{ path: '/call_me' }" class="call-me">
           <span>{{ $t('home.coop_contact.store.btn_text') }}</span>
           <i class="el-icon-right"></i>
         </router-link>

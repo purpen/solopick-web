@@ -1,11 +1,12 @@
 <template>
   <div class="sp-web-container store">
 
-    <!--导航-->
-    <top-nav></top-nav>
-
     <!--头部-->
     <div class="sp-web-head">
+
+      <!--导航-->
+      <top-nav></top-nav>
+
       <div class="sp-block-wrapper">
         <!--首屏-->
         <div class="sp-block sp-block--head">

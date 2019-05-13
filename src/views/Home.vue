@@ -1,11 +1,11 @@
 <template>
   <div class="sp-web-container home">
 
-    <!--导航-->
-    <top-nav></top-nav>
-
     <!--头部-->
     <div class="sp-web-head">
+
+      <!--导航-->
+      <top-nav></top-nav>
 
       <div class="sp-block-wrapper">
           <!--首屏-->
@@ -79,7 +79,7 @@
           <div class="sub-title">{{ $t('home.brands.sub_title') }}</div>
           <div class="title">{{ $t('home.brands.title') }}</div>
           <div class="desc">{{ $t('home.brands.description') }}</div>
-          <router-link :to="{ path: '/about' }" class="sp-btn">
+          <router-link :to="{ path: '/about' }" class="sp-btn lg">
             <span>{{ $t('home.brands.btn_text') }}</span>
             <i class="el-icon-right"></i>
           </router-link>

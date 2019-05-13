@@ -65,6 +65,9 @@ p {
 
 // Small devices (landscape phones, 576px and up)
 @media (max-width: 767.98px) {
+  .sp-web-wrapper {
+    min-width: 320px;
+  }
   .sp-navbar-wrapper {
     .sp-navbar {
       margin: 0 40px;
@@ -80,7 +83,6 @@ p {
   .sp-web-container {
     &.home {
       .sp-web-head {
-        background-size: auto 100%;
 
         .sp-block-wrapper {
           display: block;
@@ -98,10 +100,11 @@ p {
             }
           }
           .sp-block__image {
+            text-align: center;
+
             .white-products {
-              width: 325px;
-              height: 285px;
               margin-top: 20px;
+              max-width: 90%;
             }
           }
 
@@ -127,6 +130,7 @@ p {
       }
 
       .sp-block__image {
+        text-align: center;
         .best-time {
           width: 100%;
           height: auto;
@@ -206,7 +210,6 @@ p {
 
     &.about {
       .sp-web-head {
-        background-size: auto 100%;
 
         .sp-block-wrapper {
           display: block;
@@ -279,6 +282,8 @@ p {
 
     &.store {
       .sp-web-head {
+        padding-bottom: 100px;
+
         .sp-block-wrapper {
           display: block;
         }
@@ -295,8 +300,8 @@ p {
         }
         .sp-block__image {
           .white-products {
-            width: 270px;
-            height: 190px;
+            width: 100%;
+            height: auto;
             margin-top: 40px;
           }
         }
@@ -314,7 +319,7 @@ p {
           }
         }
         .sp-steps-wrapper {
-          padding: 20px 25px;
+          padding: 40px 25px;
           border-width: 0;
           border-radius: 0;
 
@@ -327,6 +332,9 @@ p {
               margin-right: 0;
             }
             .step__content {
+              .title {
+                margin-left: 0;
+              }
               .desc {
                 width: 100%;
               }
@@ -337,6 +345,13 @@ p {
 
       .address {
         .sp-block-wrapper {
+          margin: 0;
+          .title {
+            margin: 0 40px;
+          }
+          .desc {
+            margin: 0 40px 20px;
+          }
           .map {
             width: 100%;
             height: auto;
@@ -411,7 +426,7 @@ p {
           }
         }
         .sp-steps-wrapper {
-          padding: 20px 25px;
+          padding: 40px 25px;
           border-width: 0;
           border-radius: 0;
 
@@ -424,6 +439,9 @@ p {
               margin-right: 0;
             }
             .step__content {
+              .title {
+                margin-left: 0;
+              }
               .desc {
                 width: 100%;
               }
@@ -460,28 +478,33 @@ p {
         padding-bottom: 0;
 
         .coop-contact {
-          .coop-body {
-            padding-bottom: 50px;
-            margin-top: 0;
-            flex-direction: column;
-            align-items: center;
+          padding-bottom: 50px;
+          margin-top: 0;
+          flex-direction: column;
+          align-items: center;
 
-            .card {
-              margin-top: 20px;
-              margin-bottom: 20px;
-              width: auto;
-              border-radius: 0;
+          .card {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: auto;
+            border-radius: 0;
 
-              &:first-child {
-                margin-right: 0px;
-              }
+            &:first-child {
+              margin-right: 0px;
             }
           }
         }
       }
     }
 
-
+    .sp-block-wrapper {
+      .sp-block {
+        .title {
+          font-size: 26px !important;
+          line-height: 37px !important;
+        }
+      }
+    }
   }
 
 
@@ -510,8 +533,7 @@ p {
         }
         .sp-block__image {
           .white-products {
-            width: 325px;
-            height: 285px;
+            max-width: 90%;
             margin-top: 70px;
           }
         }
@@ -651,10 +673,11 @@ p {
             width: auto;
           }
         }
+
         .sp-block__image {
           .white-products {
-            width: 670px;
-            height: 470px;
+            width: 80%;
+            height: auto;
             margin-top: 40px;
           }
         }
@@ -747,11 +770,11 @@ p {
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .sp-navbar-wrapper {
     .sp-navbar {
-      margin: 0 50px;
+      margin: 0 25px;
     }
   }
   .sp-block-wrapper {
-    margin: 0 50px;
+    margin: 0 25px;
   }
 
   .sp-web-container {
@@ -767,8 +790,6 @@ p {
         }
         .sp-block__image {
           .white-products {
-            width: 325px;
-            height: 285px;
             margin-top: 70px;
           }
         }
@@ -937,15 +958,13 @@ p {
         padding-bottom: 0;
 
         .coop-contact {
-          .coop-body {
-            padding: 0 50px;
+          padding: 0 50px;
 
-            .card {
-              margin-bottom: 120px;
+          .card {
+            margin-bottom: 120px;
 
-              &:first-child {
-                margin-right: 50px;
-              }
+            &:first-child {
+              margin-right: 50px;
             }
           }
         }

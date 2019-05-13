@@ -52,8 +52,6 @@
 <style lang="scss">
   .sp-web-wrapper {
     height: 100%;
-    display: flex;
-    flex-direction: column;
 
     .sp-web-foot {
       flex: 0 0 auto;
@@ -68,22 +66,26 @@
           }
         }
       }
+
+      .brands {
+        .sp-block-wrapper {
+          .sp-btn {
+            width: auto;
+            padding: 0 20px;
+          }
+        }
+      }
     }
   }
 
   .sp-web-container {
-    flex: 1;
     position: relative;
-    display: flex;
-    flex-direction: column;
   }
 
   .sp-web-head {
-    background-size: auto 100%;
+    background-size: cover;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    padding-top: 193px;
+    padding-top: 50px;
   }
 
   .platform {
@@ -131,9 +133,10 @@
 
   .sp-block-wrapper {
     display: flex;
+    justify-content: space-between;
 
     .sp-block {
-      flex: 1;
+      flex: 0 0 50%;
 
       .title {
         font-size:48px;
@@ -180,11 +183,11 @@
     }
 
     .sp-block__image {
-      flex: 0 0 auto;
+      flex: 0 0 45%;
 
       .white-products {
-        width: 650px;
-        height: 570px;
+        width: 100%;
+        height: auto;
       }
 
       .best-time {

@@ -156,6 +156,21 @@
         display: block;
         text-align: center;
         padding-bottom: 50px;
+        margin: 0;
+
+        .foot__wrapper {
+          .foot__link {
+            justify-content: center;
+
+            .nav-item {
+              font-size: 12px;
+
+              &:last-child {
+                margin-right: 0;
+              }
+            }
+          }
+        }
       }
 
       .foot__locale {
