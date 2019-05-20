@@ -154,13 +154,17 @@
 </script>
 
 <style lang="scss" scoped>
+
+  .sp-web-container {
+    background: url("/static/img/branding-head-bg.png") no-repeat;
+    background-size: 100% auto;
+  }
+
   .sp-web-head {
-    background: url("/static/img/4-header-bg-imgs.jpg") no-repeat;
     padding-bottom: 150px;
   }
 
   .brands {
-    background:rgba(246,248,249,1);
 
     .brand-logos {
       display: flex;

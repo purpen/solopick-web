@@ -56,6 +56,7 @@
   .sp-web-head {
     background: url("/static/img/5-header-bg-imgs.jpg") no-repeat;
     padding-bottom: 100px;
+    background-size: auto 100%;
   }
 
   .coop-contact {

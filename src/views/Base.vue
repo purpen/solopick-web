@@ -83,7 +83,7 @@
   }
 
   .sp-web-head {
-    background-size: cover;
+    background-size: auto 100%;
     position: relative;
     padding-top: 50px;
   }
@@ -131,6 +131,40 @@
     }
   }
 
+  .categories {
+    padding-top: 90px;
+
+    .sp-block-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .platform-cards {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .card {
+        width: 20%;
+        text-align: center;
+        font-weight: 400;
+
+        .image {
+          width: 133px;
+          height: 138px;
+          margin-bottom: 25px;
+        }
+
+        .title {
+          font-size: 24px;
+          color: rgba(44, 46, 48, 1);
+          line-height: 33px;
+        }
+
+      }
+    }
+  }
+
   .sp-block-wrapper {
     display: flex;
     justify-content: space-between;
@@ -139,11 +173,11 @@
       flex: 0 0 50%;
 
       .title {
-        font-size:48px;
+        font-size: 42px;
         font-weight:400;
         color:rgba(255,255,255,1);
-        line-height:67px;
-        margin-bottom: 31px;
+        line-height:60px;
+        margin-bottom: 21px;
         padding-bottom: 5px;
 
         .spot {
@@ -157,8 +191,7 @@
         font-weight:400;
         color:rgba(255,255,255,1);
         line-height:34px;
-        margin-bottom: 40px;
-        width: 450px;
+        margin-bottom: 30px;
 
         .spot {
           border-bottom: 3px solid rgba(255,0,0,1);
@@ -186,16 +219,15 @@
       flex: 0 0 45%;
 
       .white-products {
-        width: 100%;
+        max-width: 100%;
         height: auto;
       }
 
       .best-time {
-        width: 540px;
-        height: 380px;
+        max-width: 100%;
+        height: auto;
         margin-top: 68px;
         margin-bottom: 108px;
-        border-radius: 5px;
       }
     }
 
@@ -256,7 +288,6 @@
   }
 
   .brands {
-    padding-top: 90px;
     padding-bottom: 60px;
 
     .sp-block-wrapper {
@@ -308,53 +339,50 @@
       display: flex;
       flex-direction: column;
 
-      .arrow {
-        margin-bottom: 60px;
-      }
-    }
+      .sp-block__head {
 
-    .coop-body {
-      display: flex;
+        .arrow {
+          margin-bottom: 60px;
+        }
 
-      .coop-rule__wrapper {
-        flex: 1;
-        display: flex;
-        margin-right: 200px;
-        flex-direction: row-reverse;
-
-        .sp-block {
-          width: 485px;
-
-          color: rgba(126,128,133,1);
-          font-weight:400;
-
-          .sub-title {
-            font-size:14px;
-            line-height:20px;
-            margin-bottom: 10px;
-          }
-
-          .title {
-            font-size:34px;
-            color:rgba(44,46,48,1);
-            line-height:46px;
-            margin-bottom: 10px;
-          }
-
-          .description {
-            font-size:16px;
-            line-height:28px;
-            margin-bottom: 20px;
-            color: rgba(126,128,133,1);
-          }
+        &.no-btm {
+          margin-bottom: 0;
         }
       }
+    }
+  }
 
-      .coop-store {
-        flex: 0 0 auto;
+  .cooperation-content {
+    background: #F6F8F9 url("/static/img/landing-3.2-line.png") no-repeat left bottom;
+
+    .sp-block-wrapper {
+      align-items: center;
+      .sp-block {
+        .sp-btn {
+          width: auto;
+          height: 52px;
+          border-radius: 38px;
+          border: 2px solid rgba(32, 96, 159, 1);
+          display: inline-block;
+          line-height: 52px;
+          font-size: 18px;
+          font-weight: 600;
+          color: rgba(32, 96, 159, 1);
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    .sp-block__image {
+      flex: 0 0 45%;
+
+      .right-photo {
+        max-width: 100%;
+        height: auto;
       }
 
     }
+
   }
 
   .process {

@@ -55,17 +55,20 @@
       margin-top: 80px;
       display: flex;
       justify-content: center;
-      background: rgba(16, 54, 92, 1);
-      padding-bottom: 295px;
+      padding-bottom: 245px;
+      background: rgba(16, 54, 92, 1) url("/static/img/footer-line.png") no-repeat left bottom;
 
       .card {
         margin-top: -80px;
         width: 410px;
-        text-align: center;
         background: rgba(255, 255, 255, 1);
         box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.14);
         border-radius: 5px;
         padding: 48px 56px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
 
         &:first-child {
           margin-right: 30px;

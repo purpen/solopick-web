@@ -20,9 +20,11 @@
     </div>
 
     <!--名称的由来-->
-    <div class="sp-block-wrapper">
-      <div class="sp-block__arrow">
-        <img class="arrow" src="/static/img/arrow-down-break.png" alt="solopick">
+    <div class="cooperation">
+      <div class="sp-block-wrapper">
+        <div class="sp-block__head no-btm">
+          <img class="arrow" src="/static/img/arrow-down-break.png" alt="solopick">
+        </div>
       </div>
     </div>
 
@@ -98,8 +100,12 @@
 </script>
 
 <style lang="scss" scoped>
+  .sp-web-container {
+    background: url("/static/img/supply-chain-head-bg.png") no-repeat;
+    background-size: 100% auto;
+  }
+
   .sp-web-head {
-    background: url("/static/img/4-header-bg-imgs.jpg") no-repeat;
     padding-bottom: 150px;
   }
 

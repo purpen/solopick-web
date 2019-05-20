@@ -48,7 +48,7 @@
         <div class="sp-block__head">
           <div class="sub-title">{{ $t('home.platform.sub_title') }}</div>
           <div class="title">{{ $t('home.platform.title') }}</div>
-          <div class="desc">{{ $t('home.platform.desc') }}</div>
+          <!--div class="desc">{{ $t('home.platform.desc') }}</div-->
         </div>
         <div class="sp-block__body">
           <div class="platform-cards">
@@ -68,6 +68,48 @@
               <div class="description">{{ $t('home.platform.card3.description') }}</div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!--五大分类-->
+    <div class="categories">
+      <div class="sp-block-wrapper">
+        <div class="sp-block__head">
+          <div class="sub-title">{{ $t('home.category.sub_title') }}</div>
+          <div class="title">{{ $t('home.category.title') }}</div>
+        </div>
+        <div class="sp-block__body">
+          <div class="platform-cards">
+            <div class="card">
+              <img src="/static/img/cate-01.png" class="image">
+              <div class="title">{{ $t('home.category.card1.title') }}</div>
+            </div>
+            <div class="card">
+              <img src="/static/img/cate-02.png" class="image">
+              <div class="title">{{ $t('home.category.card2.title') }}</div>
+            </div>
+            <div class="card">
+              <img src="/static/img/cate-03.png" class="image">
+              <div class="title">{{ $t('home.category.card3.title') }}</div>
+            </div>
+            <div class="card">
+              <img src="/static/img/cate-04.png" class="image">
+              <div class="title">{{ $t('home.category.card4.title') }}</div>
+            </div>
+            <div class="card">
+              <img src="/static/img/cate-05.png" class="image">
+              <div class="title">{{ $t('home.category.card5.title') }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cooperation">
+      <div class="sp-block-wrapper">
+        <div class="sp-block__head no-btm">
+          <img class="arrow" src="/static/img/arrow-down-break.png" alt="solopick">
         </div>
       </div>
     </div>
@@ -99,7 +141,7 @@
 
     <!--产品集合-->
     <div class="collection">
-      <img class="image" src="/static/img/cooper-products-1.jpg">
+      <img class="image" src="/static/img/landing-4.1-pic.png">
     </div>
 
     <!-- 加盟合作 -->
@@ -107,28 +149,28 @@
       <div class="sp-block-wrapper">
         <div class="sp-block__head">
           <img class="arrow" src="/static/img/arrow-down-break.png" alt="solopick">
-          <div class="sub-title">{{ $t('home.cooperation.sub_title') }}</div>
+          <!--div class="sub-title">{{ $t('home.cooperation.sub_title') }}</div-->
           <div class="title">{{ $t('home.cooperation.title') }}</div>
         </div>
       </div>
+    </div>
 
-      <div class="coop-body">
-        <div class="coop-rule__wrapper">
-          <div class="sp-block">
-            <div class="sub-title">{{ $t('home.cooperation.rule.sub_title') }}</div>
-            <div class="title">{{ $t('home.cooperation.rule.title') }}</div>
-            <div class="description">{{ $t('home.cooperation.rule.description') }}</div>
-            <div class="description">{{ $t('home.cooperation.rule.description2') }}</div>
-            <router-link :to="{ path: '/about' }" class="sp-btn">
-              <span>{{ $t('home.cooperation.rule.btn_text') }}</span>
-            </router-link>
-          </div>
+    <div class="cooperation-content">
+      <div class="sp-block-wrapper">
+        <div class="sp-block sp-block--black">
+          <div class="sub-title">{{ $t('home.cooperation.rule.sub_title') }}</div>
+          <div class="title">{{ $t('home.cooperation.rule.title') }}</div>
+          <div class="description">{{ $t('home.cooperation.rule.description') }}</div>
+          <div class="description">{{ $t('home.cooperation.rule.description2') }}</div>
+          <router-link :to="{ path: '/about' }" class="sp-btn">
+            <span>{{ $t('home.cooperation.rule.btn_text') }}</span>
+            <i class="el-icon-right"></i>
+          </router-link>
         </div>
-        <div class="coop-store">
-          <img class="right-photo" src="/static/img/about-store.jpg" alt="solopick">
+        <div class="sp-block__image">
+          <img class="right-photo" src="/static/img/store-video.png" alt="solopick">
         </div>
       </div>
-
     </div>
 
     <!--联系我们-->
@@ -157,7 +199,8 @@
 <style lang="scss" scoped>
 
   .sp-web-head {
-    background: url("/static/img/1-header-bg-imgs.jpg") no-repeat;
+    background: url("/static/img/home-landing-bg.png") no-repeat;
+    background-size: 100% auto;
   }
 
 </style>

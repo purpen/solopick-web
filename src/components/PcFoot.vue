@@ -15,7 +15,7 @@
           <span class="line">|</span>
           <router-link :to="{ path: '/call_me' }" class="nav-item">{{ $t('navbar.contact') }}</router-link>
         </div>
-        <div class="copyright">COPYRIGHT 2019 SOLOPICK 广州米选科技所有 粤ICP备18068342号-1</div>
+        <div class="copyright">COPYRIGHT 2019 SOLOPICK {{ $t('contact.company') }} {{ $t('contact.copyright_no') }}</div>
       </div>
       <div class="foot__locale">
         <div class="social">

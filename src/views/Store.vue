@@ -18,7 +18,7 @@
 
         <!-- 产品图片 -->
         <div class="sp-block__image">
-          <img class="white-products" src="/static/img/store-glance.jpg" alt="solopick">
+          <img class="white-products" src="/static/img/landing-5.2-pic.png" alt="solopick">
         </div>
       </div>
 
@@ -98,8 +98,9 @@
 
 <style lang="scss" scoped>
   .sp-web-head {
-    background: url("/static/img/3-header-bg-imgs.jpg") no-repeat;
+    background: url("/static/img/store-head-bg.png") no-repeat;
     padding-bottom: 150px;
+    background-size: 100% auto;
   }
 
   .address {
