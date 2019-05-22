@@ -155,13 +155,11 @@
 
 <style lang="scss" scoped>
 
-  .sp-web-container {
-    background: url("/static/img/branding-head-bg.png") no-repeat;
-    background-size: 100% auto;
-  }
-
   .sp-web-head {
     padding-bottom: 150px;
+    background: url("/static/img/branding-head-bg.png") no-repeat;
+    background-size: 100% auto;
+    margin-bottom: 50px;
   }
 
   .brands {

@@ -100,7 +100,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .sp-web-container {
+  .sp-web-head {
     background: url("/static/img/supply-chain-head-bg.png") no-repeat;
     background-size: 100% auto;
   }

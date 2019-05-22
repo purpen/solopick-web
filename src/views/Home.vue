@@ -199,7 +199,7 @@
 <style lang="scss" scoped>
 
   .sp-web-head {
-    background: url("/static/img/home-landing-bg.png") no-repeat;
+    background: url("/static/img/landing-page.png") no-repeat;
     background-size: 100% auto;
   }
 

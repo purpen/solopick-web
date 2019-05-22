@@ -54,7 +54,7 @@
 
 <style lang="scss" scoped>
   .sp-web-head {
-    background: url("/static/img/5-header-bg-imgs.jpg") no-repeat;
+    background: url("/static/img/contact-bg.png") no-repeat;
     padding-bottom: 100px;
     background-size: auto 100%;
   }
