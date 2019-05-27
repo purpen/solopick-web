@@ -316,11 +316,16 @@
 
     .brand-logos {
       display: flex;
+      flex-flow: row wrap;
       justify-content: space-between;
+      align-items: center;
 
       .logo {
-        width: 120px;
         flex: 0 0 120px;
+        img {
+          max-width: 100%;
+          height: auto;
+        }
       }
     }
 

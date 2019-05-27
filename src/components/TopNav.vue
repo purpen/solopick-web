@@ -4,7 +4,7 @@
     <div class="sp-navbar sp-navbar--web">
 
       <router-link :to="{ path: '/index' }" class="sp-logo-link">
-        <img class="sp-logo" src="/static/img/solopick-logo-l.png">
+        <img class="sp-logo" src="https://static.moebeast.com/static/sp/img/solopick-logo-l.png">
       </router-link>
 
       <!--PC / Tablet-->
@@ -41,7 +41,7 @@
     <div class="sp-navbar--h5">
       <div class="sp-navbar-head">
         <router-link :to="{ path: '/index' }" class="sp-logo-link">
-          <img class="sp-logo" src="/static/img/solopick-logo-m.png">
+          <img class="sp-logo" src="https://static.moebeast.com/static/sp/img/solopick-logo-m.png">
         </router-link>
         <div class="sp-navbar__icon" @click="handleOpenMenu">
           <i class="el-icon-menu"></i>

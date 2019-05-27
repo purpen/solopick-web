@@ -18,7 +18,7 @@
 
         <!-- 产品图片 -->
         <div class="sp-block__image">
-          <img class="white-products" src="/static/img/landing-5.2-pic.png" alt="solopick">
+          <img class="white-products" src="https://static.moebeast.com/static/sp/img/landing-5.2-pic.png" alt="solopick">
         </div>
       </div>
 
@@ -75,7 +75,7 @@
       <div class="sp-block-wrapper">
         <div class="title">{{ $t('store.address.title') }}</div>
         <div class="desc">{{ $t('store.address.desc') }}</div>
-        <img class="map" src="static/img/store-location.jpg" alt="solopick address">
+        <img class="map" src="https://static.moebeast.com/static/sp/img/store-location.jpg" alt="solopick address">
       </div>
     </div>
 
@@ -98,7 +98,7 @@
 
 <style lang="scss" scoped>
   .sp-web-head {
-    background: url("/static/img/store-head-bg.png") no-repeat;
+    background: url("https://static.moebeast.com/static/sp/img/store-head-bg.png") no-repeat;
     padding-bottom: 150px;
     background-size: 100% auto;
   }

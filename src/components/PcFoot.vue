@@ -20,10 +20,10 @@
       <div class="foot__locale">
         <div class="social">
           <router-link to="" class="icon-social">
-            <img src="/static/img/icon-fb.png" alt="solopick facebook">
+            <img src="https://static.moebeast.com/static/sp/img/icon-fb.png" alt="solopick facebook">
           </router-link>
           <router-link to="" class="icon-social">
-            <img src="/static/img/icon-ins.png" alt="solopick ins">
+            <img src="https://static.moebeast.com/static/sp/img/icon-ins.png" alt="solopick ins">
           </router-link>
         </div>
         <el-dropdown trigger="click" @command="handleChangeLanguage" class="sp-locale sp-locale--gray">

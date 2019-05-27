@@ -28,11 +28,12 @@
           </div>
           <div class="sp-block__body">
             <div class="brand-logos">
-              <img
+              <div
                 class="logo"
-                :src="'/static/img/'+item"
                 v-for="(item, index) in brandList"
                 :key="index">
+                <img :src="'https://static.moebeast.com/static/sp/img/'+item" class="solopick">
+              </div>
             </div>
           </div>
         </div>
@@ -82,49 +83,49 @@
     data () {
       return {
         brandList: [
-          'logo-s_0038_nine-bot.png',
-          'logo-s_0004_chunmi.png',
-          'logo-s_0007_zmi.png',
-          'logo-s_0023_swdk.png',
-          'logo-s_0005_smartmi.png',
-          'logo-s_0021_dreame.png',
-          'logo-s_0007_soocas.png',
-          'logo-s_0006_stone.png',
-          'logo-s_0001_townew.png',
-          'logo-s_0000_qcooker.png',
-          'logo-s_0039_showbay.png',
-          'logo-s_0013_90.png',
-          'logo-s_0014_jordanjudy.png',
-          'logo-s_0018_lefan.png',
-          'logo-s_0034_autobot.png',
-          'logo-s_0036_lkk.png',
-          'logo-s_0015_1more.png',
-          'logo-s_0012_8h.png',
-          'logo-s_0001_xinxiang.png',
-          'logo-s_0032_loffee.png',
-          'logo-s_0035_orashark.png',
-          'logo-s_0002_deerma.png',
-          'logo-s_0029_canban.png',
-          'logo-s_0028_l-mix.png',
-          'logo-s_0027_poputar.png',
-          'logo-s_0026_yunmai.png',
-          'logo-s_0029_rock.png',
-          'logo-s_0006_yeelight.png',
-          'logo-s_0039_KKF.png',
-          'logo-s_0026_fascinate.png',
-          'logo-s_0025_ireader.png',
-          'logo-s_0024_mushu.png',
-          'logo-s_0023_realbrella.png',
-          'logo-s_0037_lena.png',
-          'logo-s_0016_iflytek.png',
-          'logo-s_0020_gimi.png',
-          'logo-s_0015_huanxiang.png',
-          'logo-s_0018_levn.png',
-          'logo-s_0017_dongfangmaitian.png',
-          'logo-s_0000_ruimi.png',
-          'logo-s_0037_sleep-tailor.png',
-          'logo-s_0034_fifish.png'
-          ],
+          'logo_0042_nine-bot.png',
+          'logo_0017_chunmi.png',
+          'logo_0007_julavie.png',
+          'logo_0027_swdk.png',
+          'logo_0018_smartmi.png',
+          'logo_0022_dreame.png',
+          'logo_0016_soocas.png',
+          'logo_0015_stone.png',
+          'logo_0014_townew.png',
+          'logo_0013_qcooker.png',
+          'logo_0043_showbay.png',
+          'logo_0020_90.png',
+          'logo_0008_dingling.png',
+          'logo_0023_lefan.png',
+          'logo_0038_autobot.png',
+          'logo_0040_lkk.png',
+          'logo_0005_happy-life2.png',
+          'logo_0006_stylepie.png',
+          'logo_0010_xinxiang.png',
+          'logo_0036_loffee.png',
+          'logo_0035_orashark.png',
+          'logo_0011_deerma.png',
+          'logo_0033_canban.png',
+          'logo_0032_l-mix.png',
+          'logo_0031_poputar.png',
+          'logo_0030_yunmai.png',
+          'logo_0029_rock.png',
+          'logo_0019_yeelight.png',
+          'logo_0039_KKF.png',
+          'logo_0026_fascinate.png',
+          'logo_0000_circle-joy.png',
+          'logo_0025_mushu.png',
+          'logo_0024_realbrella.png',
+          'logo_0041_lena.png',
+          'logo_0004_17PIN.png',
+          'logo_0002_yueli.png',
+          'logo_0001_minij.png',
+          'logo_0021_levn.png',
+          'logo_0003_so-white.png',
+          'logo_0009_wuro.png',
+          'logo_0037_sleep-tailor.png',
+          'logo_0034_fifish.png'
+        ],
         joinStoreList: [
           {
             top: '取得联系',
@@ -157,7 +158,7 @@
 
   .sp-web-head {
     padding-bottom: 150px;
-    background: url("/static/img/branding-head-bg.png") no-repeat;
+    background: url("https://static.moebeast.com/static/sp/img/branding-head-bg.png") no-repeat;
     background-size: 100% auto;
     margin-bottom: 50px;
   }
@@ -168,13 +169,26 @@
       display: flex;
       flex-flow: row wrap;
       margin: 0 -20px;
+      justify-content: space-between;
+      align-items: center;
 
       .logo {
-        width: 120px;
-        height: 64px;
+        flex: 0 0 110px;
         margin-left: 20px;
         margin-right: 20px;
         margin-bottom: 50px;
+        text-align: center;
+
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+
+      .logo-space {
+        flex: 0 0 110px;
+        width: 110px;
+        height: 1px;
       }
     }
   }

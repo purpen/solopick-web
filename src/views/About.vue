@@ -23,7 +23,7 @@
     <div class="cooperation">
       <div class="sp-block-wrapper">
         <div class="sp-block__head no-btm">
-          <img class="arrow" src="/static/img/arrow-down-break.png" alt="solopick">
+          <img class="arrow" src="https://static.moebeast.com/static/sp/img/arrow-down-break.png" alt="solopick">
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@
         <div class="description">{{ $t('about.origin.description') }}</div>
       </div>
       <div class="sp-block__image">
-        <img class="best-time" src="/static/img/what-means.jpg" alt="solopick">
+        <img class="best-time" src="https://static.moebeast.com/static/sp/img/what-means.jpg" alt="solopick">
       </div>
     </div>
 
@@ -52,17 +52,17 @@
       <div class="coop-body">
         <div class="concept-cards">
           <div class="card">
-            <img src="/static/img/product-selection-1.png" class="image">
+            <img src="https://static.moebeast.com/static/sp/img/product-selection-1.png" class="image">
             <div class="title">{{ $t('about.concept.card1.title') }}</div>
             <div class="description">{{ $t('about.concept.card1.description') }}</div>
           </div>
           <div class="card">
-            <img src="/static/img/product-selection-2.png" class="image">
+            <img src="https://static.moebeast.com/static/sp/img/product-selection-2.png" class="image">
             <div class="title">{{ $t('about.concept.card2.title') }}</div>
             <div class="description">{{ $t('about.concept.card2.description') }}</div>
           </div>
           <div class="card">
-            <img src="/static/img/product-selection-3.png" class="image">
+            <img src="https://static.moebeast.com/static/sp/img/product-selection-3.png" class="image">
             <div class="title">{{ $t('about.concept.card3.title') }}</div>
             <div class="description">{{ $t('about.concept.card3.description') }}</div>
           </div>
@@ -101,7 +101,7 @@
 
 <style lang="scss" scoped>
   .sp-web-head {
-    background: url("/static/img/supply-chain-head-bg.png") no-repeat;
+    background: url("https://static.moebeast.com/static/sp/img/supply-chain-head-bg.png") no-repeat;
     background-size: 100% auto;
   }
 

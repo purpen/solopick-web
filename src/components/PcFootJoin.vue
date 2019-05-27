@@ -3,7 +3,7 @@
   <div class="coop-contact">
     <div class="sp-block-wrapper">
       <div class="sp-block__head">
-        <img class="arrow" src="/static/img/arrow-down-break.png" alt="solopick">
+        <img class="arrow" src="https://static.moebeast.com/static/sp/img/arrow-down-break.png" alt="solopick">
         <div class="sub-title">{{ $t('home.coop_contact.sub_title') }}</div>
         <div class="title">{{ $t('home.coop_contact.title') }}</div>
       </div>
@@ -11,7 +11,7 @@
 
     <div class="coop-body">
       <div class="card">
-        <img class="icon" src="/static/img/icon-coop-brand.png" alt="solopick">
+        <img class="icon" src="https://static.moebeast.com/static/sp/img/icon-coop-brand.png" alt="solopick">
         <div class="title">{{ $t('home.coop_contact.brand.title') }}</div>
         <div class="description">{{ $t('home.coop_contact.brand.description') }}</div>
         <router-link :to="{ path: '/call_me' }" class="call-me">
@@ -20,7 +20,7 @@
         </router-link>
       </div>
       <div class="card">
-        <img class="icon" src="/static/img/icon-coop-store.png" alt="solopick">
+        <img class="icon" src="https://static.moebeast.com/static/sp/img/icon-coop-store.png" alt="solopick">
         <div class="title">{{ $t('home.coop_contact.store.title') }}</div>
         <div class="description">{{ $t('home.coop_contact.store.description') }}</div>
         <router-link :to="{ path: '/call_me' }" class="call-me">
@@ -56,7 +56,7 @@
       display: flex;
       justify-content: center;
       padding-bottom: 245px;
-      background: rgba(16, 54, 92, 1) url("/static/img/footer-line.png") no-repeat left bottom;
+      background: rgba(16, 54, 92, 1) url("https://static.moebeast.com/static/sp/img/footer-line.png") no-repeat left bottom;
 
       .card {
         margin-top: -80px;

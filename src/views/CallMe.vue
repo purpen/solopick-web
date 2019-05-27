@@ -9,7 +9,7 @@
 
       <div class="coop-contact">
         <div class="card">
-          <img class="icon" src="/static/img/icon-coop-brand.png" alt="solopick">
+          <img class="icon" src="https://static.moebeast.com/static/sp/img/icon-coop-brand.png" alt="solopick">
           <div class="title">{{ $t('home.coop_contact.brand.title') }}</div>
           <div class="description">{{ $t('home.coop_contact.brand.description') }}</div>
           <router-link :to="{ path: '/call_me' }" class="call-me">
@@ -17,7 +17,7 @@
           </router-link>
         </div>
         <div class="card">
-          <img class="icon" src="/static/img/icon-coop-store.png" alt="solopick">
+          <img class="icon" src="https://static.moebeast.com/static/sp/img/icon-coop-store.png" alt="solopick">
           <div class="title">{{ $t('home.coop_contact.store.title') }}</div>
           <div class="description">{{ $t('home.coop_contact.store.description') }}</div>
           <router-link :to="{ path: '/call_me' }" class="call-me">
@@ -31,7 +31,7 @@
     <!--地址-->
     <div class="address">
       <div class="sp-block-wrapper">
-        <img class="arrow" src="/static/img/arrow-down-break.png" alt="solopick">
+        <img class="arrow" src="https://static.moebeast.com/static/sp/img/arrow-down-break.png" alt="solopick">
         <div class="addr">
           <i class="el-icon-location"></i> {{ $t('contact.addr') }}
         </div>
@@ -54,7 +54,7 @@
 
 <style lang="scss" scoped>
   .sp-web-head {
-    background: url("/static/img/contact-bg.png") no-repeat;
+    background: url("https://static.moebeast.com/static/sp/img/contact-bg.png") no-repeat;
     padding-bottom: 100px;
     background-size: auto 100%;
   }
